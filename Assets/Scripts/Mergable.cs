@@ -1,6 +1,17 @@
 using UnityEngine;
 
-public class Mergable : MonoBehaviour
+namespace Merge
 {
-    
+    public class Mergable : MonoBehaviour
+    {
+        public void Put(Mergable mergable)
+        {
+
+        }
+
+        public Mergable Take()
+        {
+            return this;
+        }
+    }
 }
