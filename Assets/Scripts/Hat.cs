@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Items
 {
+    [CreateAssetMenu(fileName = "New Hat", menuName = "Items/Hat")]
     public class Hat : ScriptableObject
     {
         [SerializeField] private Sprite _sprite;

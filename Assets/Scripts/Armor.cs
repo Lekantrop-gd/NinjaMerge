@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts
 {
+    [CreateAssetMenu(fileName = "New Armor", menuName = "Items/Armor")]
     public class Armor : ScriptableObject
     {
         [SerializeField] private Sprite _sprite;

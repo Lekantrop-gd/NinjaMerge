@@ -2,6 +2,7 @@
 
 namespace Items
 {
+    [CreateAssetMenu(fileName = "New Sword", menuName = "Items/Sword")]
     public class Sword : ScriptableObject
     {
         [SerializeField] private Sprite _sprite;
