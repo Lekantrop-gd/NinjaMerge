@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine.UI;
 
-public class MergableState : MonoBehaviour
+public abstract class MergableState
 {
-    // Start is called before the first frame update
-    void Start()
+    private Image _image;
+
+    public MergableState(Image image)
     {
-        
+        SetImage(image);
     }
 
-    // Update is called once per frame
-    void Update()
+    protected void SetImage(Image image)
     {
-        
+        _image.sprite = image.sprite;
     }
+
+    public abstract void Take();
+    public abstract void Put();
+
 }
