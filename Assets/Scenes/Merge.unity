@@ -494,8 +494,10 @@ MonoBehaviour:
   _mergable: {fileID: 4421848734558552900, guid: 88ee9637745325945a728d718aeea48d, type: 3}
   _swords:
   - {fileID: 11400000, guid: 1b4afbeaaa5cb954c83f665d821de530, type: 2}
-  _armor: []
-  _armorHat: []
+  _armors:
+  - {fileID: 11400000, guid: 70a0500c6d8ae5b488180589fa261db4, type: 2}
+  _hats:
+  - {fileID: 11400000, guid: 7bae7d2e9f56d7c4395615a9697ff6eb, type: 2}
   _maxItems: 12
 --- !u!1 &1758266215
 GameObject:

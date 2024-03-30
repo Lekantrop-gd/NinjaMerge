@@ -1,25 +1,13 @@
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
-namespace Merge
+namespace Items
 {
-    public class Mergable : MonoBehaviour
+    public abstract class Mergable : ScriptableObject
     {
-        [SerializeField] private Image _image;
+        [SerializeField] private Sprite _sprite;
+        [SerializeField] private string _name;
 
-        public void Init(Sprite image)
-        {
-            _image.sprite = image;
-        }
-
-        public void Put(Mergable mergable)
-        {
-
-        }
-
-        public Mergable Take()
-        {
-            return this;
-        }
+        public Sprite Sprite { get { return _sprite; } }
+        public string Name { get { return _name; } }
     }
 }
