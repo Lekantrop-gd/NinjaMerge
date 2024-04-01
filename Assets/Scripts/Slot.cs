@@ -1,3 +1,4 @@
+using Items;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,21 +7,31 @@ namespace Merge
     public class Slot : MonoBehaviour
     {
         [SerializeField] private Image _image;
+        private Mergable _mergable;
 
-        public void Init(Sprite image)
+        public void Init(Mergable mergable)
         {
-            _image.sprite = image;
+            _image.sprite = mergable?.Sprite;
+            _mergable = mergable;
         }
 
-        public void Put(Slot mergable)
+        public bool Put(Mergable mergable)
         {
-
+            if (mergable == null)
+            {
+                _mergable = mergable;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        public Slot Take()
+        public Mergable Take()
         {
-            _image.sprite = null;
-            return this;
+            Init(null);
+            return _mergable;
         }
     }
 }
