@@ -4,6 +4,6 @@ namespace Merge
 {
     public class Interactor : MonoBehaviour
     {
-
+        
     }
 }
