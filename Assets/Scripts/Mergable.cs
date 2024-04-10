@@ -16,6 +16,18 @@ public class Mergable : MonoBehaviour
     private void OnMouseUp()
     {
         StopCoroutine(_following);
+        
+        GetComponent<Collider>().enabled = false;
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+            
+        if (Physics.Raycast(ray, out hit))
+        {
+            Debug.Log(hit.collider.name);
+        }
+
+        GetComponent<Collider>().enabled = true;
     }
 
     private IEnumerator Following()
