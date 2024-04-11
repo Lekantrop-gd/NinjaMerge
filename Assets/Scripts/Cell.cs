@@ -2,34 +2,36 @@ using UnityEngine;
 
 public class Cell : MonoBehaviour
 {
-    public Mergable Context { get; private set; }
+    [SerializeField] private Mergable _context;
+
+    public Mergable Context => _context;
 
     private void Awake()
     {
-        Take();
+        if (_context != null)
+        {
+            _context.transform.position = transform.position;
+        }
     }
 
-    public bool Put(Mergable mergable)
+    public void Put(Mergable mergable)
     {
-        if (Context == null)
-        {
-            Context = mergable;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        _context = mergable;
     }
 
     public void Take()
     {
-        Context = null;
+        _context = null;
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, GetComponent<Collider>().bounds.size);
+        
+        if (_context != null)
+        {
+            Gizmos.DrawSphere(transform.position, 0.1f);
+        }
     }
 }
