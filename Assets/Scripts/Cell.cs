@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class Cell : MonoBehaviour
 {
-    public bool Empty { get; private set; }
+    public Mergable Context { get; private set; }
 
     private void Awake()
     {
-        Empty = true;
+        Take();
     }
 
     public bool Put(Mergable mergable)
     {
-        if (Empty)
+        if (Context == null)
         {
-            Empty = false;
+            Context = mergable;
             return true;
         }
         else
@@ -24,6 +24,12 @@ public class Cell : MonoBehaviour
 
     public void Take()
     {
-        Empty = true;
+        Context = null;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, GetComponent<Collider>().bounds.size);
     }
 }

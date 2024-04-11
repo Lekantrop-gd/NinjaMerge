@@ -1,44 +1,28 @@
 using NaughtyAttributes;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CellsGrid : MonoBehaviour
 {
-    [SerializeField] private Mergable _prefab;
-    [SerializeField] private Cell[] _cells;
+    [SerializeField] private Mergable _mergablePrefab;
+    [SerializeField] private Cell _cellPreafab;
     [SerializeField] private int _rows;
     [SerializeField] private int _columns;
+
+    private List<Cell> _cells;
 
     [Button]
     private void Align()
     {
-        if (_cells == null)
-            return;
-
-        int counter = 0;
-
         for (int row = 0; row < _rows; row++)
         {
             for (int column = 0; column < _columns; column++)
             {
-                _cells[counter].transform.position = new Vector3(column, 0, row);
-                counter++;
+                Cell cell = Instantiate(_cellPreafab, transform);
+                cell.transform.localPosition = new Vector3(column, 0, row);
+                _cells.Add(cell);
             }
         }
-    }
-
-    [Button]
-    public void AddItem()
-    {
-        Mergable item = Instantiate(_prefab, _prefab.transform.position, _prefab.transform.rotation);
-
-        Cell randomCell;
-        do
-        {
-            randomCell = _cells[Random.Range(0, _cells.Length)];
-        }
-        while (randomCell.Empty);
-
-        randomCell.Put(item);
-        item.Init(randomCell.transform.localPosition);
     }
 }

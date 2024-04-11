@@ -6,6 +6,9 @@ public class Mergable : MonoBehaviour
     [SerializeField] private float _movementSpeed;
     [SerializeField] private LayerMask _mergable;
     [SerializeField] private LayerMask _cell;
+    [SerializeField] private Mergable _superior;
+
+    public Mergable Superior => _superior;
 
     private Coroutine _following;
     private Vector3 _startPosition;
@@ -13,12 +16,14 @@ public class Mergable : MonoBehaviour
 
     public void Init(Vector3 startPosition)
     {
-        transform.position = startPosition;
+        transform.localPosition = startPosition;
         _startPosition = startPosition;
     }
 
     private void OnMouseDown()
     {
+        Debug.Log("Pick Up");
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         
@@ -29,17 +34,18 @@ public class Mergable : MonoBehaviour
             if (hit.collider.TryGetComponent(out Cell cell))
             {
                 _previousCell = cell;
+                _startPosition = transform.position;
+                _following = StartCoroutine(Following());
             }
         }
 
         GetComponent<Collider>().enabled = true;
-
-        _startPosition = transform.position;
-        _following = StartCoroutine(Following());
     }
 
     private void OnMouseUp()
     {
+        Debug.Log("Put Down");
+
         StopCoroutine(_following);
         
         GetComponent<Collider>().enabled = false;
@@ -47,7 +53,7 @@ public class Mergable : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
             
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, _cell))
         {
             if (hit.collider.TryGetComponent(out Cell cell))
             {
@@ -58,13 +64,30 @@ public class Mergable : MonoBehaviour
                 }
                 else
                 {
-                    StartCoroutine(MoveTo(_startPosition));
+                    if (cell.Context.Superior == _superior)
+                    {
+                        Destroy(cell.Context.gameObject);
+                        Destroy(gameObject);
+
+                        _previousCell.Take();
+                        cell.Take();
+
+                        Instantiate(_superior, transform.parent);
+                    }
+                    else
+                    {
+                        StartCoroutine(MoveTo(_startPosition));
+                    }
                 }
             }
             else
             {
                 StartCoroutine(MoveTo(_startPosition));
             }
+        }
+        else
+        {
+            StartCoroutine(MoveTo(_startPosition));
         }
 
         GetComponent<Collider>().enabled = true;
