@@ -29,7 +29,7 @@ public class CellsGrid : MonoBehaviour
     [Button]
     public void AddItem()
     {
-        Mergable item = Instantiate(_prefab, transform);
+        Mergable item = Instantiate(_prefab, _prefab.transform.position, _prefab.transform.rotation);
 
         Cell randomCell;
         do
@@ -39,5 +39,6 @@ public class CellsGrid : MonoBehaviour
         while (randomCell.Empty);
 
         randomCell.Put(item);
+        item.Init(randomCell.transform.localPosition);
     }
 }

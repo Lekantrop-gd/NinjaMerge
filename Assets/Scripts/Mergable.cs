@@ -11,6 +11,12 @@ public class Mergable : MonoBehaviour
     private Vector3 _startPosition;
     private Cell _previousCell;
 
+    public void Init(Vector3 startPosition)
+    {
+        transform.position = startPosition;
+        _startPosition = startPosition;
+    }
+
     private void OnMouseDown()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
