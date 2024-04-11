@@ -48,15 +48,16 @@ public class Mergable : MonoBehaviour
                 if (cell.Put(this))
                 {
                     _previousCell.Take();
+                    StartCoroutine(MoveTo(cell.transform.position));
                 }
                 else
                 {
-                    transform.position = _startPosition;
+                    StartCoroutine(MoveTo(_startPosition));
                 }
             }
             else
             {
-                transform.position = _startPosition;
+                StartCoroutine(MoveTo(_startPosition));
             }
         }
 
@@ -77,6 +78,16 @@ public class Mergable : MonoBehaviour
                 transform.position = Vector3.Lerp(transform.position, new Vector3(hit.point.x, transform.position.y, hit.point.z), Time.deltaTime * _movementSpeed);
             }
             
+            yield return null;
+        }
+    }
+
+    public IEnumerator MoveTo(Vector3 target)
+    {
+        while (transform.position != target)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * _movementSpeed);
+
             yield return null;
         }
     }

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class CellsGrid : MonoBehaviour
 {
+    [SerializeField] private Mergable _prefab;
     [SerializeField] private Cell[] _cells;
     [SerializeField] private int _rows;
     [SerializeField] private int _columns;
@@ -23,5 +24,20 @@ public class CellsGrid : MonoBehaviour
                 counter++;
             }
         }
+    }
+
+    [Button]
+    public void AddItem()
+    {
+        Mergable item = Instantiate(_prefab, transform);
+
+        Cell randomCell;
+        do
+        {
+            randomCell = _cells[Random.Range(0, _cells.Length)];
+        }
+        while (randomCell.Empty);
+
+        randomCell.Put(item);
     }
 }

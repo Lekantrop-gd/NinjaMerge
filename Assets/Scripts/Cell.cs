@@ -13,7 +13,6 @@ public class Cell : MonoBehaviour
     {
         if (Empty)
         {
-            mergable.transform.position = transform.position;
             Empty = false;
             return true;
         }
