@@ -113,7 +113,7 @@ public class Interactor : MonoBehaviour
             if (Physics.Raycast(ray, out hit, _mergingDeskLayer))
             {
                 context.transform.position = Vector3.Lerp(context.transform.position, 
-                    new Vector3(hit.point.x, context.transform.position.y, hit.point.z), 
+                    new Vector3(hit.point.x, hit.point.y, context.transform.position.z), 
                     Time.deltaTime * _movementSpeed);
             }
 

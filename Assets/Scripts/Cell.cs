@@ -31,7 +31,7 @@ public class Cell : MonoBehaviour
         
         if (_context != null)
         {
-            Gizmos.DrawSphere(transform.position, 0.1f);
+            Gizmos.DrawSphere(transform.position, 0.01f);
         }
     }
 }
