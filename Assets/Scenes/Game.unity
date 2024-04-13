@@ -1268,6 +1268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3145e62d4c6bd08468826515753fa534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemsRoot: {fileID: 1791721090}
   _movementSpeed: 10
   _cellLayer:
     serializedVersion: 2

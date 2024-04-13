@@ -5,6 +5,7 @@ using EnhancedTouch = UnityEngine.InputSystem.EnhancedTouch;
 
 public class Interactor : MonoBehaviour
 {
+    [SerializeField] private Transform _itemsRoot;
     [SerializeField] private float _movementSpeed;
     [SerializeField] private LayerMask _cellLayer;
     [SerializeField] private LayerMask _mergingDeskLayer;
@@ -80,7 +81,11 @@ public class Interactor : MonoBehaviour
                     Destroy(_previousCell.Context.gameObject);
                     Destroy(cell.Context.gameObject);
 
-                    _previousCell.Put(null);
+                    Mergable superior = Instantiate(cell.Context.Superior, _itemsRoot);
+
+                    superior.transform.position = cell.transform.position;
+
+                    _previousCell.Put(superior);
                     cell.Put(null);
                 }
                 
