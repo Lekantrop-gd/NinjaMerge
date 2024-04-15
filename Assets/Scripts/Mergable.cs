@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Mergable : MonoBehaviour
 {
@@ -10,17 +9,8 @@ public class Mergable : MonoBehaviour
 
     private void OnEnable()
     {
-        GameObject particles = Instantiate(_appearParticles).gameObject;
-        particles.transform.position = transform.position;
-
-        particles.GetComponent<ParticleSystem>().Play();
-
-        float totalDuration = particles.GetComponent<ParticleSystem>().main.duration + particles.GetComponent<ParticleSystem>().startLifetime;
-        Destroy(particles, totalDuration);
-    }
-
-    private void OnDisable()
-    {
-
+        Transform particles = Instantiate(_appearParticles, _appearParticles.transform.position, _appearParticles.transform.rotation).gameObject.transform;
+        particles.parent = transform;
+        particles.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + 0.01f, transform.localPosition.z);
     }
 }

@@ -98,9 +98,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _superior: {fileID: 0}
-  _onEnable:
-    m_PersistentCalls:
-      m_Calls: []
-  _onDisable:
-    m_PersistentCalls:
-      m_Calls: []
+  _appearParticles: {fileID: 4938028580026025316, guid: 0d3a3194d5c407a469d22c554aed914a, type: 3}

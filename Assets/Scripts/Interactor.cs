@@ -103,6 +103,19 @@ public class Interactor : MonoBehaviour
                 _previousCell.Put(cell.Context);
                 cell.Put(temporaryContext);
             }
+            else
+            {
+                StartCoroutine(MoveTo(_previousCell.Context.transform,
+                                  _previousCell.transform.position));
+            }
+        }
+        else
+        {
+            if (_previousCell != null && _previousCell.Context != null)
+            {
+                StartCoroutine(MoveTo(_previousCell.Context.transform,
+                                  _previousCell.transform.position));
+            }
         }
     }
 
@@ -118,8 +131,8 @@ public class Interactor : MonoBehaviour
             if (Physics.Raycast(ray, out hit, _mergingDeskLayer))
             {
                 context.transform.position = Vector3.Lerp(context.transform.position, 
-                    new Vector3(hit.point.x, hit.point.y, context.transform.position.z), 
-                    Time.deltaTime * _movementSpeed);
+                    new Vector3(hit.point.x, hit.point.y, context.transform.position.z),
+                    _movementSpeed * Time.deltaTime);
             }
 
             yield return null;
@@ -130,7 +143,7 @@ public class Interactor : MonoBehaviour
     {
         while (movable.position !=  position)
         {
-            movable.position = Vector3.MoveTowards(movable.position, position, _movementSpeed * Time.deltaTime);
+            movable.position = Vector3.Lerp(movable.position, position, _movementSpeed * Time.deltaTime);
             yield return null;
         }
     }
