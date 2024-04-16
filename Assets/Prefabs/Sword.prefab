@@ -99,3 +99,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _superior: {fileID: 8140990239959524367, guid: beb4d8a7ce7c572448860ee561cd99c2, type: 3}
   _appearParticles: {fileID: 4938028580026025316, guid: 0d3a3194d5c407a469d22c554aed914a, type: 3}
+  _movingSpeed: 10

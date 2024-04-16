@@ -12,6 +12,7 @@ public class Interactor : MonoBehaviour
 
     private Coroutine _following;
     private Cell _previousCell;
+    private bool _interacted = false;
 
     private void OnEnable()
     {
@@ -41,6 +42,7 @@ public class Interactor : MonoBehaviour
                 {
                     _following = StartCoroutine(FollowPointer(cell.Context));
                     _previousCell = cell;
+                    _interacted = true;
                 }
             }
         }
@@ -48,6 +50,9 @@ public class Interactor : MonoBehaviour
 
     private void Release(Finger finger)
     {
+        if (_interacted == false)
+            return;
+
         if (_following != null)
             StopCoroutine(_following);
 
@@ -60,20 +65,17 @@ public class Interactor : MonoBehaviour
             {
                 if (_previousCell.Context == null)
                 {
-                    return;
+                    //pass
                 }
 
                 else if (cell.Context == null)
                 {
-                    StartCoroutine(MoveTo(_previousCell.Context.transform,
-                                          cell.transform.position));
+                    _previousCell.Context.MoveTo(cell.transform.position);
                 }
 
                 else if (cell.Equals(_previousCell))
                 {
-                    StartCoroutine(MoveTo(_previousCell.Context.transform, 
-                                          _previousCell.transform.position));
-                    return;
+                    _previousCell.Context.MoveTo(_previousCell.transform.position);
                 }
 
                 else if (cell.Context.Superior == _previousCell.Context.Superior)
@@ -91,11 +93,8 @@ public class Interactor : MonoBehaviour
                 
                 else
                 {
-                    StartCoroutine(MoveTo(_previousCell.Context.transform,
-                                          cell.transform.position));
-
-                    StartCoroutine(MoveTo(cell.Context.transform,
-                                          _previousCell.transform.position));
+                    _previousCell.Context.MoveTo(cell.transform.position);
+                    cell.Context.MoveTo(_previousCell.transform.position);
                 }
 
                 Mergable temporaryContext = _previousCell.Context;
@@ -103,20 +102,14 @@ public class Interactor : MonoBehaviour
                 _previousCell.Put(cell.Context);
                 cell.Put(temporaryContext);
             }
+
             else
             {
-                StartCoroutine(MoveTo(_previousCell.Context.transform,
-                                  _previousCell.transform.position));
+                _previousCell.Context.MoveTo(_previousCell.transform.position);
             }
         }
-        else
-        {
-            if (_previousCell != null && _previousCell.Context != null)
-            {
-                StartCoroutine(MoveTo(_previousCell.Context.transform,
-                                  _previousCell.transform.position));
-            }
-        }
+
+        _interacted = false;
     }
 
     private IEnumerator FollowPointer(Mergable context)
@@ -134,16 +127,12 @@ public class Interactor : MonoBehaviour
                     new Vector3(hit.point.x, hit.point.y, context.transform.position.z),
                     _movementSpeed * Time.deltaTime);
             }
+            else
+            {
+                context.MoveTo(_previousCell.transform.position);
+                StopCoroutine(_following);
+            }
 
-            yield return null;
-        }
-    }
-
-    private IEnumerator MoveTo(Transform movable, Vector3 position)
-    {
-        while (movable.position !=  position)
-        {
-            movable.position = Vector3.Lerp(movable.position, position, _movementSpeed * Time.deltaTime);
             yield return null;
         }
     }

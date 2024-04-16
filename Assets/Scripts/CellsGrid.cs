@@ -40,6 +40,11 @@ public class CellsGrid : MonoBehaviour
     [Button]
     public void SpawnRandomWeapon()
     {
+        if (_cells == null || _cells.Count < 1)
+        {
+            Align();
+        }
+
         List<Cell> emptyCells = new List<Cell>();
         for (int x = 0; x < _cells.Count; x++)
         {
