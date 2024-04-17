@@ -4,7 +4,7 @@ public class Cell : MonoBehaviour
 {
     [SerializeField] private Mergable _context;
 
-    public Mergable Context => _context;
+    public virtual Mergable Context => _context;
 
     private void Awake()
     {

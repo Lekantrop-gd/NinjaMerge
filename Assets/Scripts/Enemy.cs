@@ -8,7 +8,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _reachDistance;
     [SerializeField] private float _animationSpeed;
     [SerializeField] private LayerMask _playerLayer;
-    [SerializeField] private Mergable _sword;
+    [SerializeField] private Weapon _weapon;
+    [SerializeField] private Armor _armor;
 
     public static event Action<Enemy> Died;
 
@@ -41,7 +42,7 @@ public class Enemy : MonoBehaviour
 
     public void DealDamage(Player player)
     {
-        player.TakeDamage(_sword.Damage);
+        player.TakeDamage(_weapon.Damage);
     }
 
     public void TakeDamage(int damage)

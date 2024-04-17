@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float _detectingRadius;
     [SerializeField] private float _animationSpeed;
     [SerializeField] private float _health;
-    [SerializeField] private Cell _swordCell;
+    [SerializeField] private WeaponCell _weaponCell;
+    [SerializeField] private ArmorCell _armorCell;
 
     public bool Dead => _dead;
     
@@ -88,7 +89,7 @@ public class Player : MonoBehaviour
 
     public void DealDamage(Enemy enemy)
     {
-        enemy.TakeDamage(_swordCell.Context.Damage);
+        enemy.TakeDamage(_weaponCell.Weapon.Damage);
     }
 
     public void TakeDamage(int damage)

@@ -6,10 +6,8 @@ public class Mergable : MonoBehaviour
     [SerializeField] private Mergable _superior;
     [SerializeField] private ParticleSystem _appearParticles;
     [SerializeField] private float _movingSpeed;
-    [SerializeField] private int _damage;
 
     public Mergable Superior => _superior;
-    public int Damage => _damage;
 
     private Coroutine _moving;
 
