@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -8,10 +9,14 @@ public class Player : MonoBehaviour
     [SerializeField] private float _reachDistance;
     [SerializeField] private float _detectingRadius;
     [SerializeField] private float _animationSpeed;
+    [SerializeField] private float _health;
     [SerializeField] private Cell _swordCell;
 
+    public bool Dead => _dead;
+    
     private List<Enemy> _enemies = new List<Enemy>();
     private Coroutine _attacking;
+    private bool _dead;
 
     private void OnEnable()
     {
@@ -84,6 +89,20 @@ public class Player : MonoBehaviour
     public void DealDamage(Enemy enemy)
     {
         enemy.TakeDamage(_swordCell.Context.Damage);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (damage >= _health)
+        {
+            Destroy(gameObject);
+            _dead = true;
+            Debug.Log("Defeat");
+        }
+        else
+        {
+            _health -= damage;
+        }
     }
 
     private void OnDrawGizmos()

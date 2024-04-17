@@ -38,7 +38,7 @@ public class CellsGrid : MonoBehaviour
     }
 
     [Button]
-    public void SpawnRandomWeapon()
+    public bool SpawnRandomWeapon()
     {
         if (_cells == null || _cells.Count < 1)
         {
@@ -56,7 +56,7 @@ public class CellsGrid : MonoBehaviour
 
         if (emptyCells.Count == 0)
         {
-            return;
+            return false;
         }
 
         Cell randomCell = emptyCells[Random.Range(0, emptyCells.Count)];
@@ -66,5 +66,7 @@ public class CellsGrid : MonoBehaviour
         mergable.transform.position = randomCell.transform.position;
 
         randomCell.Put(mergable);
+
+        return true;
     }
 }
