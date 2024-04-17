@@ -12,18 +12,19 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Armor _armor;
 
     public static event Action<Enemy> Died;
+    private Coroutine _attacking;
 
     public void StartFight()
     {
         Collider playerCollider = Physics.OverlapSphere(transform.position, _detectingRadius, _playerLayer)[0];
         Player player = playerCollider.GetComponent<Player>();
 
-        StartCoroutine(Attack(player));
+        _attacking = StartCoroutine(Attack(player));
     }
 
     private IEnumerator Attack(Player player)
     {
-        while (player.Dead == false)
+        while (true)
         {
             if (Vector3.Distance(transform.position, player.transform.position) > _reachDistance)
             {
@@ -42,12 +43,27 @@ public class Enemy : MonoBehaviour
 
     public void DealDamage(Player player)
     {
-        player.TakeDamage(_weapon.Damage);
+        player.TakeDamage(_weapon == null ? 0 : _weapon.Damage);
     }
 
     public void TakeDamage(int damage)
     {
         Destroy(gameObject);
         Died?.Invoke(this);
+    }
+
+    private void OnEnable()
+    {
+        Player.Defeat += WinnerDance;
+    }
+
+    private void OnDisable()
+    {
+        Player.Defeat -= WinnerDance;
+    }
+
+    private void WinnerDance()
+    {
+        StopCoroutine(_attacking);
     }
 }

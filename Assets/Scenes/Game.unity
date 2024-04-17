@@ -885,7 +885,8 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 1024
-  _sword: {fileID: 8288299572066050455, guid: eee4596ffefad6b4b96ae63a4c780700, type: 3}
+  _weapon: {fileID: 4021606112818957964, guid: eee4596ffefad6b4b96ae63a4c780700, type: 3}
+  _armor: {fileID: 0}
 --- !u!65 &504002727
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1010,7 +1011,8 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 1024
-  _sword: {fileID: 8288299572066050455, guid: eee4596ffefad6b4b96ae63a4c780700, type: 3}
+  _weapon: {fileID: 4021606112818957964, guid: eee4596ffefad6b4b96ae63a4c780700, type: 3}
+  _armor: {fileID: 0}
 --- !u!65 &537401122
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1156,7 +1158,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Spawn
 
-    Sword'
+    Weapon'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2500,7 +2502,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1064930447}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99b9c59eb1daec9458b4efd631243d78, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b75557d5b1d9f041af511c92d52fea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _context: {fileID: 0}
@@ -3016,7 +3018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f783f108486f3b04d85ec5fc064041c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mergablePrefab: {fileID: 8288299572066050455, guid: eee4596ffefad6b4b96ae63a4c780700, type: 3}
+  _mergablePrefab: {fileID: 4021606112818957964, guid: eee4596ffefad6b4b96ae63a4c780700, type: 3}
   _cellPreafab: {fileID: 2233120455922294534, guid: e2aec78e46cd8eb4099c29a6d7fc150e, type: 3}
   _itemsRoot: {fileID: 1791721090}
   _rows: 3
@@ -3059,8 +3061,9 @@ MonoBehaviour:
   _reachDistance: 1
   _detectingRadius: 20
   _animationSpeed: 5
-  _health: 0
-  _swordCell: {fileID: 1064930450}
+  _health: 100
+  _weaponCell: {fileID: 1064930450}
+  _armorCell: {fileID: 1451781727}
 --- !u!65 &1424535810
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3251,8 +3254,8 @@ Transform:
   m_LocalScale: {x: 0.14, y: 0.2, z: 0.085}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1451781725}
   - {fileID: 1064930448}
+  - {fileID: 1451781725}
   - {fileID: 1358631660}
   - {fileID: 1791721090}
   m_Father: {fileID: 0}
@@ -3321,7 +3324,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1451781724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99b9c59eb1daec9458b4efd631243d78, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e198007aec936f4f9b65768037218d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _context: {fileID: 0}
@@ -3338,7 +3341,7 @@ GameObject:
   - component: {fileID: 1487013323}
   - component: {fileID: 1487013322}
   m_Layer: 5
-  m_Name: SpawnSword
+  m_Name: SpawnArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3788,7 +3791,7 @@ GameObject:
   - component: {fileID: 1702485400}
   - component: {fileID: 1702485399}
   m_Layer: 5
-  m_Name: SpawnButton
+  m_Name: SpawnWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4388,7 +4391,8 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 1024
-  _sword: {fileID: 8288299572066050455, guid: eee4596ffefad6b4b96ae63a4c780700, type: 3}
+  _weapon: {fileID: 4021606112818957964, guid: eee4596ffefad6b4b96ae63a4c780700, type: 3}
+  _armor: {fileID: 0}
 --- !u!65 &1873709789
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5126,7 +5130,8 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 1024
-  _sword: {fileID: 8288299572066050455, guid: eee4596ffefad6b4b96ae63a4c780700, type: 3}
+  _weapon: {fileID: 4021606112818957964, guid: eee4596ffefad6b4b96ae63a4c780700, type: 3}
+  _armor: {fileID: 0}
 --- !u!65 &2113715300
 BoxCollider:
   m_ObjectHideFlags: 0

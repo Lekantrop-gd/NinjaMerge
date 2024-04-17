@@ -1,6 +1,6 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -13,11 +13,11 @@ public class Player : MonoBehaviour
     [SerializeField] private WeaponCell _weaponCell;
     [SerializeField] private ArmorCell _armorCell;
 
-    public bool Dead => _dead;
-    
+    public static event Action Won;
+    public static event Action Defeat;
+
     private List<Enemy> _enemies = new List<Enemy>();
     private Coroutine _attacking;
-    private bool _dead;
 
     private void OnEnable()
     {
@@ -64,6 +64,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+            Won?.Invoke();
             Debug.Log("Won");
         }
     }
@@ -89,15 +90,15 @@ public class Player : MonoBehaviour
 
     public void DealDamage(Enemy enemy)
     {
-        enemy.TakeDamage(_weaponCell.Weapon.Damage);
+        enemy.TakeDamage(_weaponCell.Weapon == null ? 0 : _weaponCell.Weapon.Damage);
     }
 
     public void TakeDamage(int damage)
     {
         if (damage >= _health)
         {
+            Defeat?.Invoke();
             Destroy(gameObject);
-            _dead = true;
             Debug.Log("Defeat");
         }
         else
