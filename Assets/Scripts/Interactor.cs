@@ -9,6 +9,7 @@ public class Interactor : MonoBehaviour
     [SerializeField] private float _movementSpeed;
     [SerializeField] private LayerMask _cellLayer;
     [SerializeField] private LayerMask _mergingDeskLayer;
+    [SerializeField] private LayerMask _playerLayer;
 
     private Coroutine _following;
     private Cell _previousCell;
@@ -40,6 +41,7 @@ public class Interactor : MonoBehaviour
             {
                 if (cell.Context != null)
                 {
+                    cell.Context.StopMoving();
                     _following = StartCoroutine(FollowPointer(cell.Context));
                     _previousCell = cell;
                     _interacted = true;

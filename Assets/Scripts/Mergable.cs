@@ -6,8 +6,10 @@ public class Mergable : MonoBehaviour
     [SerializeField] private Mergable _superior;
     [SerializeField] private ParticleSystem _appearParticles;
     [SerializeField] private float _movingSpeed;
+    [SerializeField] private int _damage;
 
     public Mergable Superior => _superior;
+    public int Damage => _damage;
 
     private Coroutine _moving;
 
@@ -18,10 +20,15 @@ public class Mergable : MonoBehaviour
         particles.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + 0.01f, transform.localPosition.z);
     }
 
-    public void MoveTo(Vector3 target)
+    public void StopMoving()
     {
         if (_moving != null)
             StopCoroutine(_moving);
+    }
+
+    public void MoveTo(Vector3 target)
+    {
+        StopMoving();
 
         _moving = StartCoroutine(PerformMoving(target));
     }
