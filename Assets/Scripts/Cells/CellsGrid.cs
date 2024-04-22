@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CellsGrid : MonoBehaviour
 {
-    [SerializeField] private Mergable _mergablePrefab;
+    [SerializeField] private Weapon _weaponPrefab;
+    [SerializeField] private Armor _armorPrefab;
     [SerializeField] private Cell _cellPreafab;
     [SerializeField] private Transform _itemsRoot;
     [SerializeField] private int _rows;
@@ -38,7 +39,18 @@ public class CellsGrid : MonoBehaviour
     }
 
     [Button]
-    public void SpawnRandomWeapon()
+    public void SpawnWeapon()
+    {
+        SpawnItem(_weaponPrefab);
+    }
+
+    [Button]
+    public void SpawnArmor()
+    {
+        SpawnItem(_armorPrefab);
+    }
+
+    public void SpawnItem(Mergable item)
     {
         if (_cells == null || _cells.Count < 1)
         {
@@ -61,7 +73,7 @@ public class CellsGrid : MonoBehaviour
 
         Cell randomCell = emptyCells[Random.Range(0, emptyCells.Count)];
 
-        Mergable mergable = Instantiate(_mergablePrefab, _itemsRoot);
+        Mergable mergable = Instantiate(item, _itemsRoot);
 
         mergable.transform.position = randomCell.transform.position;
 

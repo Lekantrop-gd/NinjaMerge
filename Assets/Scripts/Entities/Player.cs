@@ -95,6 +95,13 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (_armorCell.Armor != null)
+        {
+            damage -= damage * _armorCell.Armor.ProtectionPoints / 100;
+        }
+
+        Debug.Log(damage);
+
         if (damage >= _health)
         {
             Defeat?.Invoke();

@@ -2,7 +2,7 @@
 
 public class Armor : Mergable
 {
-    [SerializeField] private int _damageReducePercentage;
+    [SerializeField] private int _protectionPoints;
 
-    public int DamageReducePercentage => _damageReducePercentage;
+    public int ProtectionPoints => _protectionPoints;
 }

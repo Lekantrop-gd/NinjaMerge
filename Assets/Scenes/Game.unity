@@ -3018,7 +3018,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f783f108486f3b04d85ec5fc064041c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mergablePrefab: {fileID: 4021606112818957964, guid: eee4596ffefad6b4b96ae63a4c780700, type: 3}
+  _weaponPrefab: {fileID: 4021606112818957964, guid: eee4596ffefad6b4b96ae63a4c780700, type: 3}
+  _armorPrefab: {fileID: 5187752561173397894, guid: 25f095ec937a7f94a9b70a0c743bd0fc, type: 3}
   _cellPreafab: {fileID: 2233120455922294534, guid: e2aec78e46cd8eb4099c29a6d7fc150e, type: 3}
   _itemsRoot: {fileID: 1791721090}
   _rows: 3
@@ -3413,7 +3414,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1358631661}
         m_TargetAssemblyTypeName: CellsGrid, Assembly-CSharp
-        m_MethodName: SpawnRandomWeapon
+        m_MethodName: SpawnArmor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3863,7 +3864,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1358631661}
         m_TargetAssemblyTypeName: CellsGrid, Assembly-CSharp
-        m_MethodName: SpawnRandomWeapon
+        m_MethodName: SpawnWeapon
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
