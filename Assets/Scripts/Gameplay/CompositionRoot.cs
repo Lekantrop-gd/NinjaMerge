@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CompositionRoot : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class CompositionRoot : MonoBehaviour
 
     private void Awake()
     {
+        Application.targetFrameRate = 1000;
+
         if (Level == 0)
         {
             IncreaseLevel();
@@ -28,11 +31,12 @@ public class CompositionRoot : MonoBehaviour
     private void OnWon()
     {
         _wallet.Put(_startWinReward + _rewardAddend * Level);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void OnDefeat()
     {
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void OnEnable()

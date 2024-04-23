@@ -10,23 +10,38 @@ public class Player : MonoBehaviour
     [SerializeField] private float _detectingRadius;
     [SerializeField] private float _animationSpeed;
     [SerializeField] private float _health;
-    [SerializeField] private WeaponCell _weaponCell;
-    [SerializeField] private ArmorCell _armorCell;
 
     public static event Action Won;
     public static event Action Defeat;
 
     private List<Enemy> _enemies = new List<Enemy>();
     private Coroutine _attacking;
+    private Weapon _weapon;
+    private Armor _armor;
 
     private void OnEnable()
     {
         Enemy.Died += OnEnemyDied;
+        WeaponCell.WeaponSet += OnWeaponSet;
+        ArmorCell.ArmorSet += OnArmorSet;
     }
 
     private void OnDisable()
     {
         Enemy.Died -= OnEnemyDied;
+        WeaponCell.WeaponSet -= OnWeaponSet;
+        ArmorCell.ArmorSet -= OnArmorSet;
+    }
+
+    private void OnWeaponSet(Weapon weapon)
+    {
+        _weapon = weapon;
+    }
+
+    private void OnArmorSet(Armor armor)
+    {
+        _armor = armor;
+        _health = armor.ProtectionPoints;
     }
 
     private void OnEnemyDied(Enemy enemy) 
@@ -90,16 +105,11 @@ public class Player : MonoBehaviour
 
     public void DealDamage(Enemy enemy)
     {
-        enemy.TakeDamage(_weaponCell.Weapon == null ? 0 : _weaponCell.Weapon.Damage);
+        enemy.TakeDamage(_weapon == null ? 0 : _weapon.Damage);
     }
 
     public void TakeDamage(int damage)
     {
-        if (_armorCell.Armor != null)
-        {
-            damage -= damage * _armorCell.Armor.ProtectionPoints / 100;
-        }
-
         Debug.Log(damage);
 
         if (damage >= _health)

@@ -14,7 +14,7 @@ public class Cell : MonoBehaviour
         }
     }
 
-    public void Put(Mergable mergable)
+    public virtual void Put(Mergable mergable)
     {
         _context = mergable;
     }
@@ -31,7 +31,7 @@ public class Cell : MonoBehaviour
         
         if (_context != null)
         {
-            Gizmos.DrawSphere(transform.position, 0.01f);
+            Gizmos.DrawSphere(transform.position, 0.1f);
         }
     }
 }

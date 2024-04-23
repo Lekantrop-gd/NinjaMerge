@@ -1,4 +1,12 @@
-﻿public class WeaponCell : Cell
+﻿using System;
+
+public class WeaponCell : Cell
 {
-    public Weapon Weapon => Context as Weapon;
+    public static Action<Weapon> WeaponSet;
+
+    public override void Put(Mergable mergable)
+    {
+        base.Put(mergable);
+        WeaponSet?.Invoke(Context as Weapon);
+    }
 }
