@@ -1,5 +1,4 @@
 using System;
-using UnityEditor;
 using UnityEngine;
 
 public class ApperanceChanger : MonoBehaviour
@@ -8,6 +7,10 @@ public class ApperanceChanger : MonoBehaviour
     [SerializeField] private Transform _armor;
     [SerializeField] private Transform _defaultArmorlessHair;
     [SerializeField] private Transform _defaultArmorHair;
+    [SerializeField] private Transform _player;
+    [SerializeField] private Transform _playerModel;
+    [SerializeField] private Transform _defaultPlayerModel;
+    [SerializeField] private Transform _accesories;
     [SerializeField] private WeaponSet[] _weaponModels;
     [SerializeField] private ArmorSet[] _armorModels;
 
@@ -75,6 +78,11 @@ public class ApperanceChanger : MonoBehaviour
 
         if (armor == null)
         {
+            Transform newPlayerModel = Instantiate(_defaultPlayerModel, _player);
+            _accesories.parent = newPlayerModel;
+            Destroy(_playerModel.gameObject);
+            _playerModel = transform.parent.parent;
+
             Instantiate(_defaultArmorlessHair, _armor);
             return;
         }
@@ -85,9 +93,14 @@ public class ApperanceChanger : MonoBehaviour
         {
             if (armor.ProtectionPoints == _armorModels[x].Armor.ProtectionPoints)
             {
+                Transform newPlayerModel = Instantiate(_armorModels[x].ArmorModel, _player);
+                _accesories.parent = newPlayerModel;
+                Destroy(_playerModel.gameObject);
+                _playerModel = transform.parent.parent;
+
                 Instantiate(_defaultArmorHair, _armor);
                 Instantiate(_armorModels[x].HatModel, _armor);
-                PrefabUtility.ReplacePrefab(gameObject, _armorModels[x].ArmorModel);
+                set = true;
             }
         }
 
