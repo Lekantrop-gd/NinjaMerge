@@ -90,7 +90,11 @@ public class Player : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, enemy.transform.position) > _reachDistance)
             {
-                _transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, Time.deltaTime * _animationSpeed);
+                _transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, _animationSpeed * Time.deltaTime);
+                
+                Quaternion targetRotation = Quaternion.LookRotation(enemy.transform.position - transform.position);
+                
+                _transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _animationSpeed * Time.deltaTime);
             }
             else
             {
