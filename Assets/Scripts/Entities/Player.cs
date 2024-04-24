@@ -81,7 +81,6 @@ public class Player : MonoBehaviour
         else
         {
             Won?.Invoke();
-            Debug.Log("Won");
         }
     }
 
@@ -111,13 +110,10 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Debug.Log(damage);
-
         if (damage >= _health)
         {
             Defeat?.Invoke();
             Destroy(gameObject);
-            Debug.Log("Defeat");
         }
         else
         {

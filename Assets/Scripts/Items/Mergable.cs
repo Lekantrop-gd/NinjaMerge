@@ -13,9 +13,11 @@ public class Mergable : MonoBehaviour
 
     private void OnEnable()
     {
-        Transform particles = Instantiate(_appearParticles, _appearParticles.transform.position, _appearParticles.transform.rotation).gameObject.transform;
+        Transform particles = Instantiate(_appearParticles, 
+                                          _appearParticles.transform.position, 
+                                          _appearParticles.transform.rotation).gameObject.transform;
         particles.parent = transform;
-        particles.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + 0.01f, transform.localPosition.z);
+        particles.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + 0.5f);
     }
 
     public void StopMoving()
