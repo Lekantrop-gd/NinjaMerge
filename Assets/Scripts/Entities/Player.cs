@@ -57,7 +57,9 @@ public class Player : MonoBehaviour
 
     public void StartFight()
     {
-        Collider[] enemiesColliders = Physics.OverlapSphere(transform.position, _detectingRadius, _enemyLayer);
+        Collider[] enemiesColliders = Physics.OverlapSphere(transform.position, 
+                                                            _detectingRadius, 
+                                                            _enemyLayer);
         
         foreach (Collider enemyCollider in enemiesColliders)
         {
@@ -90,11 +92,16 @@ public class Player : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, enemy.transform.position) > _reachDistance)
             {
-                _transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, _animationSpeed * Time.deltaTime);
+                _transform.position = Vector3.MoveTowards(transform.position, 
+                                                          enemy.transform.position, 
+                                                          _animationSpeed * Time.deltaTime);
                 
-                Quaternion targetRotation = Quaternion.LookRotation(enemy.transform.position - transform.position);
+                Quaternion targetRotation = Quaternion.LookRotation(enemy.transform.position - 
+                                                                    transform.position);
                 
-                _transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _animationSpeed * Time.deltaTime);
+                _transform.rotation = Quaternion.Slerp(transform.rotation, 
+                                                       targetRotation, 
+                                                       _animationSpeed * Time.deltaTime);
             }
             else
             {
