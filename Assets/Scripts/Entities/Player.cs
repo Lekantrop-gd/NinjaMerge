@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
     private void OnArmorSet(Armor armor)
     {
         _armor = armor;
-        _health = armor.ProtectionPoints;
+        _health = armor == null ? 0 : armor.ProtectionPoints;
     }
 
     private void OnEnemyDied(Enemy enemy) 
