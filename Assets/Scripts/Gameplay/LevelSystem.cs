@@ -6,16 +6,23 @@ public class LevelSystem : ScriptableObject
 {
     [SerializeField] private Level[] _levels;
 
+    public Level[] Levels => _levels;
+
     [Serializable]
-    private struct Level
+    public struct Level
     {
         [SerializeField] private EnemyInfo[] _enemies;
+
+        public EnemyInfo[] Enemies => _enemies;
     }
 
     [Serializable]
-    private struct EnemyInfo
+    public struct EnemyInfo
     {
         [SerializeField] private Weapon _weapon;
         [SerializeField] private Armor _armor;
+
+        public Weapon Weapon => _weapon;
+        public Armor Armor => _armor;
     }
 }

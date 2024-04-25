@@ -14,6 +14,12 @@ public class Enemy : MonoBehaviour
     public static event Action<Enemy> Died;
     private Coroutine _attacking;
 
+    public void Init(Weapon weapon, Armor armor)
+    {
+        _weapon = weapon;
+        _armor = armor;
+    }
+
     public void StartFight()
     {
         Collider playerCollider = Physics.OverlapSphere(transform.position, _detectingRadius, _playerLayer)[0];
