@@ -1,4 +1,5 @@
 using NaughtyAttributes;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,12 +7,60 @@ public class CellsGrid : MonoBehaviour
 {
     [SerializeField] private Weapon _weaponPrefab;
     [SerializeField] private Armor _armorPrefab;
+    [SerializeField] private WeaponSet _weaponSet;
+    [SerializeField] private ArmorSet _armorSet;
     [SerializeField] private Cell _cellPreafab;
     [SerializeField] private Transform _itemsRoot;
     [SerializeField] private int _rows;
     [SerializeField] private int _columns;
 
+    public readonly string CellsKey = nameof(CellsKey);
+
     private List<Cell> _cells = new List<Cell>();
+
+    [Serializable]
+    public class SavingData
+    {
+        public List<string> data = new List<string>();
+    }
+
+    private void Awake()
+    {
+        if (PlayerPrefs.HasKey(CellsKey))
+        {
+            SavingData data = JsonUtility.FromJson<SavingData>(PlayerPrefs.GetString(CellsKey));
+
+            for (int x = 0; x < data.data.Count; x++)
+            {
+                Debug.Log(data.data[x]);
+                //SpawnItem(_cells[x].Context, x);
+            }
+        }
+    }
+
+    public void Save()
+    {
+        SavingData data = new SavingData();
+        data.data.Clear();
+        for (int x = 0; x < _cells.Count; x++)
+        {
+            data.data.Add("");
+        }
+
+        for (int x = 0; x < _cells.Count; x++)
+        {
+            if (_cells[x].Context != null)
+            {
+                if (_cells[x].Context.name.Contains("(Clone)"))
+                {
+                    data.data[x] = _cells[x].Context.name.Replace("(Clone)", "");
+                }
+            }
+        }
+
+        PlayerPrefs.SetString(CellsKey, JsonUtility.ToJson(data));
+        PlayerPrefs.Save();
+    }
 
     [Button]
     private void Align()
@@ -71,12 +120,28 @@ public class CellsGrid : MonoBehaviour
             return;
         }
 
-        Cell randomCell = emptyCells[Random.Range(0, emptyCells.Count)];
+        Cell randomCell = emptyCells[UnityEngine.Random.Range(0, emptyCells.Count)];
 
         Mergable mergable = Instantiate(item, _itemsRoot);
 
         mergable.transform.position = randomCell.transform.position;
 
         randomCell.Put(mergable);
+
+        Save();
+    }
+
+    public void SpawnItem(Mergable item, int position)
+    {
+        if (_cells == null || _cells.Count < 1)
+        {
+            Align();
+        }
+
+        Mergable mergable = Instantiate(item, _itemsRoot);
+
+        mergable.transform.position = _cells[position].transform.position;
+
+        _cells[position].Put(mergable);
     }
 }

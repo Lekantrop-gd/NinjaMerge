@@ -11,9 +11,11 @@ public class WeaponSet : ScriptableObject
     [Serializable]
     public struct WeaponLink
     {
+        [SerializeField] private int _id;
         [SerializeField] private Weapon _weapon;
         [SerializeField] private Transform _model;
 
+        public int Id => _id;
         public Weapon Weapon => _weapon;
         public Transform Model => _model;
     }
