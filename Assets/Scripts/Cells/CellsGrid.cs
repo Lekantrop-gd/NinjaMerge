@@ -1,7 +1,9 @@
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CellsGrid : MonoBehaviour
 {
@@ -9,12 +11,17 @@ public class CellsGrid : MonoBehaviour
     [SerializeField] private Armor _armorPrefab;
     [SerializeField] private WeaponSet _weaponSet;
     [SerializeField] private ArmorSet _armorSet;
+    [SerializeField] private WeaponCell _weaponCell;
+    [SerializeField] private ArmorCell _armorCell;
     [SerializeField] private Cell _cellPreafab;
     [SerializeField] private Transform _itemsRoot;
+    
     [SerializeField] private int _rows;
     [SerializeField] private int _columns;
 
     public readonly string CellsKey = nameof(CellsKey);
+    public readonly string WeaponKey = nameof(WeaponKey);
+    public readonly string ArmorKey = nameof(ArmorKey);
 
     private List<Cell> _cells = new List<Cell>();
 
@@ -26,25 +33,86 @@ public class CellsGrid : MonoBehaviour
 
     private void Awake()
     {
+        if (PlayerPrefs.HasKey(WeaponKey))
+        {
+            if (PlayerPrefs.GetString(WeaponKey) != null)
+            {
+                for (int x = 0; x < _weaponSet.WeaponLinks.Length; x++)
+                {
+                    if (PlayerPrefs.GetString(WeaponKey) == _weaponSet.WeaponLinks[x].Weapon.name)
+                    {
+                        Mergable mergable = Instantiate(_weaponSet.WeaponLinks[x].Weapon, Vector3.zero, Quaternion.identity);
+
+                        mergable.transform.position = _weaponCell.transform.position;
+
+                        _weaponCell.Put(mergable);
+                    }
+                }
+            }
+        }
+
+        if (PlayerPrefs.HasKey(ArmorKey))
+        {
+            if (PlayerPrefs.GetString(ArmorKey) != null)
+            {
+                for (int x = 0; x < _armorSet.ArmorLinks.Length; x++)
+                {
+                    if (PlayerPrefs.GetString(ArmorKey) == _armorSet.ArmorLinks[x].Armor.name)
+                    {
+                        Mergable mergable = Instantiate(_armorSet.ArmorLinks[x].Armor, Vector3.zero, Quaternion.identity);
+
+                        mergable.transform.position = _armorCell.transform.position;
+
+                        _armorCell.Put(mergable);
+                    }
+                }
+            }
+        }
+
         if (PlayerPrefs.HasKey(CellsKey))
         {
             SavingData data = JsonUtility.FromJson<SavingData>(PlayerPrefs.GetString(CellsKey));
 
             for (int x = 0; x < data.data.Count; x++)
             {
-                Debug.Log(data.data[x]);
-                //SpawnItem(_cells[x].Context, x);
+                if (data.data[x] != "" || data.data != null)
+                {
+                    for (int y = 0; y < _weaponSet.WeaponLinks.Length; y++)
+                    {
+                        if (data.data[x] == _weaponSet.WeaponLinks[y].Weapon.name)
+                        {
+                            SpawnItem(_weaponSet.WeaponLinks[y].Weapon, x);
+                            break;
+                        }
+                    }
+                    for (int y = 0; y < _armorSet.ArmorLinks.Length; y++)
+                    {
+                        if (data.data[x] == _armorSet.ArmorLinks[y].Armor.name)
+                        {
+                            SpawnItem(_armorSet.ArmorLinks[y].Armor, x);
+                        }
+                    }
+                }
             }
         }
+    }
+
+    private void OnEnable()
+    {
+        Interactor.Merged += Save;
+    }
+
+    private void OnDisable()
+    {
+        Interactor.Merged -= Save;
     }
 
     public void Save()
     {
         SavingData data = new SavingData();
-        data.data.Clear();
         for (int x = 0; x < _cells.Count; x++)
         {
-            data.data.Add("");
+            data.data.Add(null);
         }
 
         for (int x = 0; x < _cells.Count; x++)
@@ -59,6 +127,17 @@ public class CellsGrid : MonoBehaviour
         }
 
         PlayerPrefs.SetString(CellsKey, JsonUtility.ToJson(data));
+        
+        if (_weaponCell.Context != null)
+            PlayerPrefs.SetString(WeaponKey, _weaponCell.Context.name.Replace("(Clone)", ""));
+        else
+            PlayerPrefs.SetString(WeaponKey, null);
+
+        if (_armorCell.Context != null)
+            PlayerPrefs.SetString(ArmorKey, _armorCell.Context.name.Replace("(Clone)", ""));
+        else
+            PlayerPrefs.SetString(ArmorKey, null);
+
         PlayerPrefs.Save();
     }
 

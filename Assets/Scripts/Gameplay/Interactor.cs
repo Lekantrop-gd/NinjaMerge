@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ public class Interactor : MonoBehaviour
     [SerializeField] private LayerMask _cellLayer;
     [SerializeField] private LayerMask _mergingDeskLayer;
     [SerializeField] private LayerMask _playerLayer;
+
+    public static event Action Merged;
 
     private Collider _collider;
     private Coroutine _following;
@@ -28,6 +31,7 @@ public class Interactor : MonoBehaviour
     private void OnMouseUp()
     {
         Release();
+        Merged?.Invoke();
         _collider.enabled = true;
     }
 

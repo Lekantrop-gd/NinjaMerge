@@ -3660,6 +3660,8 @@ MonoBehaviour:
   _armorPrefab: {fileID: 8446496851347552881, guid: 8375b1ae1e4126245a6f0e4d78f5f35f, type: 3}
   _weaponSet: {fileID: 11400000, guid: 142cf3d7a2d356e44807d5c31a30c53c, type: 2}
   _armorSet: {fileID: 11400000, guid: a1564f9e2b81d634fb180b84e6b2fcc5, type: 2}
+  _weaponCell: {fileID: 1064930450}
+  _armorCell: {fileID: 1451781727}
   _cellPreafab: {fileID: 2233120455922294534, guid: e2aec78e46cd8eb4099c29a6d7fc150e, type: 3}
   _itemsRoot: {fileID: 1791721090}
   _rows: 3
