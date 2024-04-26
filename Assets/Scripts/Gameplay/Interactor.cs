@@ -1,7 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem.EnhancedTouch;
-using EnhancedTouch = UnityEngine.InputSystem.EnhancedTouch;
 
 public class Interactor : MonoBehaviour
 {
@@ -11,28 +9,31 @@ public class Interactor : MonoBehaviour
     [SerializeField] private LayerMask _mergingDeskLayer;
     [SerializeField] private LayerMask _playerLayer;
 
+    private Collider _collider;
     private Coroutine _following;
     private Cell _previousCell;
     private bool _interacted = false;
 
-    private void OnEnable()
+    private void Awake()
     {
-        EnhancedTouch.TouchSimulation.Enable();
-        EnhancedTouch.EnhancedTouchSupport.Enable();
-
-        EnhancedTouch.Touch.onFingerDown += Press;
-        EnhancedTouch.Touch.onFingerUp += Release;
+        _collider = GetComponent<Collider>();
     }
 
-    private void OnDisable()
+    private void OnMouseDown()
     {
-        EnhancedTouch.TouchSimulation.Disable();
-        EnhancedTouch.EnhancedTouchSupport.Disable();
+        _collider.enabled = false;
+        Press();
     }
 
-    private void Press(Finger finger)
+    private void OnMouseUp()
     {
-        Ray ray = Camera.main.ScreenPointToRay(finger.screenPosition);
+        Release();
+        _collider.enabled = true;
+    }
+
+    private void Press()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, _cellLayer))
@@ -50,7 +51,7 @@ public class Interactor : MonoBehaviour
         }
     }
 
-    private void Release(Finger finger)
+    private void Release()
     {
         if (_interacted == false)
             return;
@@ -58,7 +59,7 @@ public class Interactor : MonoBehaviour
         if (_following != null)
             StopCoroutine(_following);
 
-        Ray ray = Camera.main.ScreenPointToRay(finger.screenPosition);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, _cellLayer))
