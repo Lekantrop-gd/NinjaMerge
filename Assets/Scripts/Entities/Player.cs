@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float _detectingRadius;
     [SerializeField] private float _animationSpeed;
     [SerializeField] private float _health;
-    [SerializeField] private Transform _transform;
 
     public static event Action Won;
     public static event Action Defeat;
@@ -92,14 +91,14 @@ public class Player : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, enemy.transform.position) > _reachDistance)
             {
-                _transform.position = Vector3.MoveTowards(transform.position, 
+                transform.position = Vector3.MoveTowards(transform.position, 
                                                           enemy.transform.position, 
                                                           _animationSpeed * Time.deltaTime);
                 
                 Quaternion targetRotation = Quaternion.LookRotation(enemy.transform.position - 
                                                                     transform.position);
                 
-                _transform.rotation = Quaternion.Slerp(transform.rotation, 
+                transform.rotation = Quaternion.Slerp(transform.rotation, 
                                                        targetRotation, 
                                                        _animationSpeed * Time.deltaTime);
             }

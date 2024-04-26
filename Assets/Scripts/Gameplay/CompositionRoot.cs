@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,21 +15,26 @@ public class CompositionRoot : MonoBehaviour
 
     public int Level => PlayerPrefs.GetInt(LevelKey, 0);
 
+    private void Awake()
+    {
+        Application.targetFrameRate = 1000;
+
+        for (int x = 0; x < _levelSystem.Levels[Level].Enemies.Length; x++)
+        {
+            _spawner.Spawn(_levelSystem.Levels[Level].Enemies[x].Weapon,
+                           _levelSystem.Levels[Level].Enemies[x].Armor);
+        }
+    }
+
     public void IncreaseLevel()
     {
         PlayerPrefs.SetInt(LevelKey, Level + 1);
         PlayerPrefs.Save();
     }
 
-    private void Awake()
+    public void ClearPlayerPrefs()
     {
-        Application.targetFrameRate = 1000;
-
-        for (int x = 0; x < _levelSystem.Levels[8].Enemies.Length; x++)
-        {
-            _spawner.Spawn(_levelSystem.Levels[8].Enemies[x].Weapon,
-                           _levelSystem.Levels[8].Enemies[x].Armor);
-        }
+        PlayerPrefs.DeleteAll();
     }
 
     private void OnWon()

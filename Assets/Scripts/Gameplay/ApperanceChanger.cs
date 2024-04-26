@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class ApperanceChanger : MonoBehaviour
@@ -7,48 +6,13 @@ public class ApperanceChanger : MonoBehaviour
     [SerializeField] private Transform _armor;
     [SerializeField] private Transform _defaultArmorlessHair;
     [SerializeField] private Transform _defaultArmorHair;
-    [SerializeField] private Transform _player;
     [SerializeField] private Transform _playerModel;
     [SerializeField] private Transform _defaultPlayerModel;
     [SerializeField] private Transform _accesories;
-    [SerializeField] private WeaponSet[] _weaponModels;
-    [SerializeField] private ArmorSet[] _armorModels;
+    [SerializeField] private WeaponSet _weaponSet;
+    [SerializeField] private ArmorSet _armorSet;
 
-    [Serializable]
-    public struct WeaponSet
-    {
-        [SerializeField] private Weapon _weapon;
-        [SerializeField] private Transform _model;
-
-        public Weapon Weapon => _weapon;
-        public Transform Model => _model;
-    }
-
-    [Serializable]
-    public struct ArmorSet
-    {
-        [SerializeField] private Armor _armor;
-        [SerializeField] private Transform _hatModel;
-        [SerializeField] private Transform _armorModel;
-
-        public Armor Armor => _armor;
-        public Transform HatModel => _hatModel;
-        public Transform ArmorModel => _armorModel;
-    }
-
-    private void OnEnable()
-    {
-        WeaponCell.WeaponSet += OnWeaponSet;
-        ArmorCell.ArmorSet += OnArmorSet;
-    }
-
-    private void OnDisable()
-    {
-        WeaponCell.WeaponSet += OnWeaponSet;
-        ArmorCell.ArmorSet -= OnArmorSet;
-    }
-
-    private void OnWeaponSet(Weapon weapon)
+    public void SetWeapon(Weapon weapon)
     {
         for (int child = _weapon.childCount - 1; child >= 0; child--)
         {
@@ -60,16 +24,16 @@ public class ApperanceChanger : MonoBehaviour
             return;
         }
 
-        for (int x = 0; x < _weaponModels.Length; x++)
+        for (int x = 0; x < _weaponSet.WeaponLinks.Length; x++)
         {
-            if (weapon.Damage == _weaponModels[x].Weapon.Damage)
+            if (weapon.Damage == _weaponSet.WeaponLinks[x].Weapon.Damage)
             {
-                Instantiate(_weaponModels[x].Model, _weapon);
+                Instantiate(_weaponSet.WeaponLinks[x].Model, _weapon);
             }
         }
     }
 
-    private void OnArmorSet(Armor armor)
+    public void SetArmor(Armor armor)
     {
         for (int child = _armor.childCount - 1; child >= 0; child--)
         {
@@ -78,10 +42,10 @@ public class ApperanceChanger : MonoBehaviour
 
         if (armor == null)
         {
-            Transform newPlayerModel = Instantiate(_defaultPlayerModel, _player);
+            Transform newPlayerModel = Instantiate(_defaultPlayerModel, transform);
             _accesories.parent = newPlayerModel;
             Destroy(_playerModel.gameObject);
-            _playerModel = transform.parent.parent;
+            _playerModel = newPlayerModel;
 
             Instantiate(_defaultArmorlessHair, _armor);
             return;
@@ -89,17 +53,17 @@ public class ApperanceChanger : MonoBehaviour
 
         bool set = false;
 
-        for (int x = 0; x < _armorModels.Length; x++)
+        for (int x = 0; x < _armorSet.ArmorLinks.Length - 1; x++)
         {
-            if (armor.ProtectionPoints == _armorModels[x].Armor.ProtectionPoints)
+            if (armor.ProtectionPoints == _armorSet.ArmorLinks[x].Armor.ProtectionPoints)
             {
-                Transform newPlayerModel = Instantiate(_armorModels[x].ArmorModel, _player);
+                Transform newPlayerModel = Instantiate(_armorSet.ArmorLinks[x].ArmorModel, transform);
                 _accesories.parent = newPlayerModel;
                 Destroy(_playerModel.gameObject);
-                _playerModel = transform.parent.parent;
+                _playerModel = newPlayerModel;
 
                 Instantiate(_defaultArmorHair, _armor);
-                Instantiate(_armorModels[x].HatModel, _armor);
+                Instantiate(_armorSet.ArmorLinks[x].HatModel, _armor);
                 set = true;
             }
         }

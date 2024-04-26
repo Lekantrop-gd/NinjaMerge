@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf6d28a202c21f4086367f536e467c3, type: 3}
+  m_Name: ArmorSet
+  m_EditorClassIdentifier: 
+  _armorLinks:
+  - _armor: {fileID: 8446496851347552881, guid: 8375b1ae1e4126245a6f0e4d78f5f35f, type: 3}
+    _hatModel: {fileID: 7533335463205683507, guid: d3521005249046f4384332c8533f2748, type: 3}
+    _armorModel: {fileID: 6229888108735199097, guid: 0fb6dc452ccf2ba46ac5dca12ce555b8, type: 3}
+  - _armor: {fileID: 8446496851347552881, guid: 8310a483657e8604599a75c7291519e1, type: 3}
+    _hatModel: {fileID: 2742902965180111753, guid: dc4f2b9963901a549af37560af3a8998, type: 3}
+    _armorModel: {fileID: 1845110766782814431, guid: 65214fb0052cf4b4b86581fffa305a5a, type: 3}
+  - _armor: {fileID: 8446496851347552881, guid: 8302207517d24df47a28f0e20553f50f, type: 3}
+    _hatModel: {fileID: 1811653857314328599, guid: 79724f9a771deaa4c8be7bf571da9fb5, type: 3}
+    _armorModel: {fileID: 8084506322753675549, guid: 04aac42b15fef2d4380bc6ed01b9b24f, type: 3}
+  - _armor: {fileID: 8446496851347552881, guid: dc6f846a2fe35ce498c6e98214fa7ce0, type: 3}
+    _hatModel: {fileID: 2602201533998078502, guid: fb099f02fb0dca94185a5355a2cf40fb, type: 3}
+    _armorModel: {fileID: 654411047970595663, guid: 98e3e0eec57da364ca0e35b8bf9bff0b, type: 3}
+  - _armor: {fileID: 8446496851347552881, guid: 6b5778b1967b77e47998f05023b32dc8, type: 3}
+    _hatModel: {fileID: 7133469005290013685, guid: 7f8e923b8f017d6469d64cb9090a96bf, type: 3}
+    _armorModel: {fileID: 1849780904191477855, guid: 61c38a09142025f4bb5de586295b6630, type: 3}
+  - _armor: {fileID: 8446496851347552881, guid: 35a4cce6750b7d14e8c4913bbf27506d, type: 3}
+    _hatModel: {fileID: 5447529035474610655, guid: 9229d41a81f9e2840a97a644172c691e, type: 3}
+    _armorModel: {fileID: 7261775337791018713, guid: d9474f929e26bfe4caf578c4949094b0, type: 3}
+  - _armor: {fileID: 8446496851347552881, guid: a38443873225352458a7be29a2b063e5, type: 3}
+    _hatModel: {fileID: 461039573735950485, guid: 1425d0320b580c54ea4293f41573d37b, type: 3}
+    _armorModel: {fileID: 2430359888656952308, guid: f21dacffce01c7f47b6a9569eca8ed2e, type: 3}
+  - _armor: {fileID: 8446496851347552881, guid: e17cb7e2a2af966478a775de0df2b431, type: 3}
+    _hatModel: {fileID: 1237741313004574955, guid: 1f3378bc8ab33cf49b21c599176e7990, type: 3}
+    _armorModel: {fileID: 5954609021248961286, guid: a85589d6526bd704aa4aa264bd2e6674, type: 3}
+  - _armor: {fileID: 8446496851347552881, guid: c481e86014215734f86605ee1412fc22, type: 3}
+    _hatModel: {fileID: 7268247826828755438, guid: d034385fb2326864395e3493443504ef, type: 3}
+    _armorModel: {fileID: 6341546934873826567, guid: 86e8f819c6fdb9c43ae1f36bbb8eb969, type: 3}
+  - _armor: {fileID: 8446496851347552881, guid: ce82aef1122184b45889a6b64c1ec14f, type: 3}
+    _hatModel: {fileID: 7114663859644695899, guid: a2ad11a0410ce0e488961ec92f8cc1e9, type: 3}
+    _armorModel: {fileID: 4834179015239179334, guid: 83fe87156da543143a6ad2609b453b08, type: 3}
