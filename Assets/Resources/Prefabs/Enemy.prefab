@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 91098776078432056}
   - component: {fileID: 8754916060151687301}
   - component: {fileID: 1301370287785773423}
+  - component: {fileID: 6944559090789289910}
   - component: {fileID: 4175820884269892531}
   m_Layer: 9
   m_Name: Enemy
@@ -48,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectingRadius: 50
-  _reachDistance: 2
+  _reachDistance: 2.3
   _animationSpeed: 5
   _playerLayer:
     serializedVersion: 2
@@ -76,6 +77,19 @@ MonoBehaviour:
   _weaponSet: {fileID: 11400000, guid: 142cf3d7a2d356e44807d5c31a30c53c, type: 2}
   _armorSet: {fileID: 11400000, guid: a1564f9e2b81d634fb180b84e6b2fcc5, type: 2}
   _router: {fileID: 8850731276833283858}
+  _animator: {fileID: 9100000, guid: 2d65f067bdcdb4942907980eb0b3891e, type: 2}
+--- !u!114 &6944559090789289910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8986123631245305301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b073749105d5b45af8fafa5e84656d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &4175820884269892531
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -363,6 +377,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7424274047646504349, guid: dcad22c2c58203c4095882498e722e08, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 2d65f067bdcdb4942907980eb0b3891e, type: 2}
     - target: {fileID: 7601190188616325822, guid: dcad22c2c58203c4095882498e722e08, type: 3}
       propertyPath: m_Layer
       value: 9

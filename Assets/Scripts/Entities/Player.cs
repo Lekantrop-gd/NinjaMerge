@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
 
     public static event Action Won;
     public static event Action Defeat;
+    public static event Action Damage;
+    public static event Action Run;
 
     private List<Enemy> _enemies = new List<Enemy>();
     private Coroutine _attacking;
@@ -101,12 +103,11 @@ public class Player : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation, 
                                                        targetRotation, 
                                                        _animationSpeed * Time.deltaTime);
+                Run?.Invoke();
             }
             else
             {
-                yield return new WaitForSeconds(1);
-                DealDamage(enemy);
-                yield return new WaitForSeconds(1);
+                Damage?.Invoke();
             }
 
             yield return null;

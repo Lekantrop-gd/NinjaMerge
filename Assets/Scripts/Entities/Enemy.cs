@@ -12,7 +12,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private ApperanceChanger _apperanceChanger;
 
     public static event Action<Enemy> Died;
-    
+    public static event Action Run;
+    public static event Action Fight;
+
     private Coroutine _attacking;
     private int _health = 0;
 
@@ -51,12 +53,11 @@ public class Enemy : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation,
                                                       targetRotation,
                                                       _animationSpeed * Time.deltaTime);
+                Run?.Invoke();
             }
             else
             {
-                yield return new WaitForSeconds(1);
-                DealDamage(player);
-                yield return new WaitForSeconds(1);
+                Fight?.Invoke();
             }
 
             yield return null;
