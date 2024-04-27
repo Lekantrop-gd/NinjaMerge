@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
 
     private Coroutine _attacking;
     private int _health = 0;
+    private Player _player;
 
     public void Init(Weapon weapon, Armor armor)
     {
@@ -57,6 +58,7 @@ public class Enemy : MonoBehaviour
             }
             else
             {
+                _player = player;
                 Fight?.Invoke();
             }
 
@@ -64,9 +66,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void DealDamage(Player player)
+    public void DealDamage()
     {
-        player.TakeDamage(_weapon == null ? 0 : _weapon.Damage);
+        _player.TakeDamage(_weapon == null ? 0 : _weapon.Damage);
     }
 
     public void TakeDamage(int damage)
@@ -88,6 +90,7 @@ public class Enemy : MonoBehaviour
     {
         Player.Won += OnWon;
         Player.Defeat += OnDefeat;
+        EnemyDamager.Damage += DealDamage;
     }
 
     private void OnDisable()

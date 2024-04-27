@@ -20,12 +20,14 @@ public class Player : MonoBehaviour
     private Coroutine _attacking;
     private Weapon _weapon;
     private Armor _armor;
+    private Enemy _enemy;
 
     private void OnEnable()
     {
         Enemy.Died += OnEnemyDied;
         WeaponCell.WeaponSet += OnWeaponSet;
         ArmorCell.ArmorSet += OnArmorSet;
+        PlayerDamager.Damage += DealDamage;
     }
 
     private void OnDisable()
@@ -33,6 +35,7 @@ public class Player : MonoBehaviour
         Enemy.Died -= OnEnemyDied;
         WeaponCell.WeaponSet -= OnWeaponSet;
         ArmorCell.ArmorSet -= OnArmorSet;
+        PlayerDamager.Damage += DealDamage;
     }
 
     private void OnWeaponSet(Weapon weapon)
@@ -107,6 +110,7 @@ public class Player : MonoBehaviour
             }
             else
             {
+                _enemy = enemy;
                 Damage?.Invoke();
             }
 
@@ -114,9 +118,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void DealDamage(Enemy enemy)
+    public void DealDamage()
     {
-        enemy.TakeDamage(_weapon == null ? 0 : _weapon.Damage);
+        _enemy.TakeDamage(_weapon == null ? 0 : _weapon.Damage);
     }
 
     public void TakeDamage(int damage)

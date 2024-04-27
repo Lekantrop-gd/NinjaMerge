@@ -1,11 +1,30 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 
 public class Wallet : MonoBehaviour
 {
-    [SerializeField] private int _balance;
+    [SerializeField] private int _startBalance;
+    [SerializeField] private TextMeshProUGUI _balanceText;
 
-    public int Balance => _balance;
+    public readonly string WalletKey = nameof(WalletKey);
+    public int Balance => PlayerPrefs.GetInt(WalletKey);
+
+    private void Awake()
+    {
+        if (PlayerPrefs.HasKey(WalletKey) == false)
+        {
+            PlayerPrefs.SetInt(WalletKey, _startBalance);
+            PlayerPrefs.Save();
+        }
+        
+        UpdateBalance();
+    }
+
+    public void UpdateBalance()
+    {
+        _balanceText.text = Balance.ToString();
+    }
 
     public void Take(int amount)
     {
@@ -13,14 +32,17 @@ public class Wallet : MonoBehaviour
         {
             throw new ArgumentOutOfRangeException();
         }
-        else if (amount > _balance)
+        else if (amount > Balance)
         {
             throw new ArgumentOutOfRangeException();
         }
         else
         {
-            _balance -= amount;
+            PlayerPrefs.SetInt(WalletKey, Balance - amount);
+            PlayerPrefs.Save();
         }
+
+        UpdateBalance();
     }
 
     public void Put(int amount)
@@ -31,7 +53,10 @@ public class Wallet : MonoBehaviour
         }
         else
         {
-            _balance += amount;
+            PlayerPrefs.SetInt(WalletKey, Balance + amount);
+            PlayerPrefs.Save();
         }
+
+        UpdateBalance();
     }
 }

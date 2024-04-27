@@ -1661,6 +1661,7 @@ GameObject:
   - component: {fileID: 8084506322753675549}
   - component: {fileID: 8627584995774203636}
   - component: {fileID: 3824954598725422795}
+  - component: {fileID: 1096184558960551481}
   m_Layer: 0
   m_Name: 'Fair Purple Female Ninja 02 '
   m_TagString: Untagged
@@ -1727,6 +1728,18 @@ MonoBehaviour:
   _hatRoot: {fileID: 4523966408756526141}
   _leftHandRoot: {fileID: 9003448897324303620}
   _rightHandRoot: {fileID: 3604524415187434816}
+--- !u!114 &1096184558960551481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8897493310345690023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6858db2f6ec042c4aac1cb9e7ceaaf76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9098469920880239276
 GameObject:
   m_ObjectHideFlags: 0
