@@ -75,6 +75,18 @@ public class Interactor : MonoBehaviour
                     //pass
                 }
 
+                else if (cell.GetComponent<WeaponCell>() != null && _previousCell.Context is Armor)
+                {
+                    _previousCell.Context.MoveTo(_previousCell.transform.position);
+                    return;
+                }
+
+                else if (cell.GetComponent<ArmorCell>() != null && _previousCell.Context is Weapon)
+                {
+                    _previousCell.Context.MoveTo(_previousCell.transform.position);
+                    return;
+                }
+
                 else if (cell.Context == null)
                 {
                     _previousCell.Context.MoveTo(cell.transform.position);
