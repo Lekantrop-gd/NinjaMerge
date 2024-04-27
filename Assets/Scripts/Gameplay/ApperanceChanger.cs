@@ -2,75 +2,70 @@ using UnityEngine;
 
 public class ApperanceChanger : MonoBehaviour
 {
-    [SerializeField] private Transform _weapon;
-    [SerializeField] private Transform _armor;
-    [SerializeField] private Transform _defaultArmorlessHair;
+    [SerializeField] private Transform _defaultHair;
     [SerializeField] private Transform _defaultArmorHair;
-    [SerializeField] private Transform _playerModel;
+    [SerializeField] private Transform _defaultHead;
+    [SerializeField] private Transform _defaultFace;
     [SerializeField] private Transform _defaultPlayerModel;
-    [SerializeField] private Transform _accesories;
+    [SerializeField] protected Transform _playerModel;
     [SerializeField] private WeaponSet _weaponSet;
     [SerializeField] private ArmorSet _armorSet;
+    [SerializeField] private ModelRouter _router;
 
     public void SetWeapon(Weapon weapon)
     {
-        for (int child = _weapon.childCount - 1; child >= 0; child--)
+        if (_router.RightHandRoot.childCount > 0)
         {
-            Destroy(_weapon.GetChild(child).gameObject);
+            Destroy(_router.RightHandRoot.GetChild(0).gameObject);
         }
 
-        if (weapon == null)
+        if (weapon != null)
         {
-            return;
-        }
-
-        for (int x = 0; x < _weaponSet.WeaponLinks.Length; x++)
-        {
-            if (weapon.Damage == _weaponSet.WeaponLinks[x].Weapon.Damage)
+            for (int x = 0; x < _weaponSet.WeaponLinks.Length; x++)
             {
-                Instantiate(_weaponSet.WeaponLinks[x].Model, _weapon);
+                if (weapon.Damage == _weaponSet.WeaponLinks[x].Weapon.Damage)
+                {
+                    Instantiate(_weaponSet.WeaponLinks[x].Model, _router.RightHandRoot);
+                }
             }
         }
     }
 
-    public void SetArmor(Armor armor)
+    public virtual void SetArmor(Armor armor)
     {
-        for (int child = _armor.childCount - 1; child >= 0; child--)
-        {
-            Destroy(_armor.GetChild(child).gameObject);
-        }
-
+        Transform newPlayerModel = null;
+        ModelRouter newRouter = null;
         if (armor == null)
         {
-            Transform newPlayerModel = Instantiate(_defaultPlayerModel, transform);
-            _accesories.parent = newPlayerModel;
-            Destroy(_playerModel.gameObject);
-            _playerModel = newPlayerModel;
-
-            Instantiate(_defaultArmorlessHair, _armor);
-            return;
+            newPlayerModel = Instantiate(_defaultPlayerModel, transform);
+            newRouter = newPlayerModel.GetComponent<ModelRouter>();
+            Instantiate(_defaultHair, newRouter.HairRoot);
         }
-
-        bool set = false;
-
-        for (int x = 0; x < _armorSet.ArmorLinks.Length - 1; x++)
+        else
         {
-            if (armor.ProtectionPoints == _armorSet.ArmorLinks[x].Armor.ProtectionPoints)
+            for (int x = 0; x < _armorSet.ArmorLinks.Length - 1; x++)
             {
-                Transform newPlayerModel = Instantiate(_armorSet.ArmorLinks[x].ArmorModel, transform);
-                _accesories.parent = newPlayerModel;
-                Destroy(_playerModel.gameObject);
-                _playerModel = newPlayerModel;
-
-                Instantiate(_defaultArmorHair, _armor);
-                Instantiate(_armorSet.ArmorLinks[x].HatModel, _armor);
-                set = true;
+                if (armor.ProtectionPoints == _armorSet.ArmorLinks[x].Armor.ProtectionPoints)
+                {
+                    newPlayerModel = Instantiate(_armorSet.ArmorLinks[x].ArmorModel, transform);
+                    newRouter = newPlayerModel.GetComponent<ModelRouter>();
+                    Instantiate(_defaultArmorHair, newRouter.HairRoot);
+                    Instantiate(_armorSet.ArmorLinks[x].HatModel, newRouter.HatRoot);
+                    break;
+                }
             }
         }
-
-        if (set == false)
+        
+        if (_router.RightHandRoot.childCount > 0)
         {
-            Instantiate(_defaultArmorlessHair, _armor);
+            Instantiate(_router.RightHandRoot.GetChild(0), newRouter.RightHandRoot);
         }
+
+        Destroy(_playerModel.gameObject);
+        _playerModel = newPlayerModel;
+        _router = newRouter;
+
+        Instantiate(_defaultHead, _router.HeadRoot);
+        Instantiate(_defaultFace, _router.FaceRoot);
     }
 }
