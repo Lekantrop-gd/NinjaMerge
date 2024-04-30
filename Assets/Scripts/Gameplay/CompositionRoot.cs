@@ -35,6 +35,7 @@ public class CompositionRoot : MonoBehaviour
     public void ClearPlayerPrefs()
     {
         PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
     }
 
     private void OnWon()
