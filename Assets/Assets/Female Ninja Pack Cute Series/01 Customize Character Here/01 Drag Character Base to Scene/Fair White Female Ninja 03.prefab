@@ -1026,7 +1026,6 @@ GameObject:
   - component: {fileID: 4834179015239179334}
   - component: {fileID: 6555818143980312941}
   - component: {fileID: 2478221914540863003}
-  - component: {fileID: 516744682560317202}
   m_Layer: 0
   m_Name: Fair White Female Ninja 03
   m_TagString: Untagged
@@ -1093,18 +1092,6 @@ MonoBehaviour:
   _hatRoot: {fileID: 1634658597116309784}
   _leftHandRoot: {fileID: 8717304707183593763}
   _rightHandRoot: {fileID: 3894888805837648231}
---- !u!114 &516744682560317202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5214504947399968508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6858db2f6ec042c4aac1cb9e7ceaaf76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5250312729145132132
 GameObject:
   m_ObjectHideFlags: 0

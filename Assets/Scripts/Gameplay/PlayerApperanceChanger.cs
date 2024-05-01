@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
 
 public class PlayerApperanceChanger : ApperanceChanger
 {
@@ -12,5 +12,10 @@ public class PlayerApperanceChanger : ApperanceChanger
     {
         WeaponCell.WeaponSet -= SetWeapon;
         ArmorCell.ArmorSet -= SetArmor;
+    }
+
+    public override void AddDamager()
+    {
+        _playerModel.AddComponent<PlayerDamager>();
     }
 }

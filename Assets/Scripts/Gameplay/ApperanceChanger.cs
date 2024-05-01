@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ApperanceChanger : MonoBehaviour
@@ -35,7 +36,7 @@ public class ApperanceChanger : MonoBehaviour
         }
     }
 
-    public virtual void SetArmor(Armor armor)
+    public void SetArmor(Armor armor)
     {
         Transform newPlayerModel = null;
         ModelRouter newRouter = null;
@@ -74,5 +75,12 @@ public class ApperanceChanger : MonoBehaviour
 
         _playerModel.GetComponent<Animator>().runtimeAnimatorController = _animator;
         AnimatorSet?.Invoke(_playerModel.GetComponent<Animator>());
+
+        AddDamager();
+    }
+
+    public virtual void AddDamager()
+    {
+        _playerModel.AddComponent<EnemyDamager>();
     }
 }

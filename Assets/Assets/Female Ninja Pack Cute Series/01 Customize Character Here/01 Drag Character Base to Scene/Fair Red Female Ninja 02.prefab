@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 654411047970595663}
   - component: {fileID: 1053374045369500838}
   - component: {fileID: 8382264288349212795}
-  - component: {fileID: 8032997636432231800}
   m_Layer: 0
   m_Name: Fair Red Female Ninja 02
   m_TagString: Untagged
@@ -110,18 +109,6 @@ MonoBehaviour:
   _hatRoot: {fileID: 7724618152989042990}
   _leftHandRoot: {fileID: 420996244633339734}
   _rightHandRoot: {fileID: 5413563219647741714}
---- !u!114 &8032997636432231800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170925460997323253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6858db2f6ec042c4aac1cb9e7ceaaf76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &367084235609244819
 GameObject:
   m_ObjectHideFlags: 0

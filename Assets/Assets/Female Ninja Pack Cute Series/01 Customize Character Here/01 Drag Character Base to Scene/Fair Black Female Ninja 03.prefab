@@ -1507,7 +1507,6 @@ GameObject:
   - component: {fileID: 7261775337791018713}
   - component: {fileID: 9019452059652625394}
   - component: {fileID: 2733391536179029485}
-  - component: {fileID: 8596452167938036278}
   m_Layer: 0
   m_Name: Fair Black Female Ninja 03
   m_TagString: Untagged
@@ -1574,18 +1573,6 @@ MonoBehaviour:
   _hatRoot: {fileID: 7034262440613174547}
   _leftHandRoot: {fileID: 6857680907705746364}
   _rightHandRoot: {fileID: 1286932978879593464}
---- !u!114 &8596452167938036278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8038031008530533475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6858db2f6ec042c4aac1cb9e7ceaaf76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8390508156774154765
 GameObject:
   m_ObjectHideFlags: 0

@@ -171,7 +171,6 @@ GameObject:
   - component: {fileID: 1845110766782814431}
   - component: {fileID: 2166687761307533110}
   - component: {fileID: 3902347838765149066}
-  - component: {fileID: 349577038809923460}
   m_Layer: 0
   m_Name: Fair Blue Female Ninja 02
   m_TagString: Untagged
@@ -238,18 +237,6 @@ MonoBehaviour:
   _hatRoot: {fileID: 1645812317911109290}
   _leftHandRoot: {fileID: 1538090101946629318}
   _rightHandRoot: {fileID: 6606532189864543362}
---- !u!114 &349577038809923460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355854912254558821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6858db2f6ec042c4aac1cb9e7ceaaf76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1724469579915451246
 GameObject:
   m_ObjectHideFlags: 0
