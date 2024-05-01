@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,7 @@ public class CompositionRoot : MonoBehaviour
     [SerializeField] private int _startWinReward;
     [SerializeField] private int _startLoseReward;
     [SerializeField] private int _rewardAddend;
+    [SerializeField] private TextMeshProUGUI _levelText;
 
     public readonly string LevelKey = nameof(LevelKey);
 
@@ -18,6 +20,8 @@ public class CompositionRoot : MonoBehaviour
     private void Awake()
     {
         Application.targetFrameRate = 1000;
+
+        _levelText.text = "Level " + Level.ToString();
 
         for (int x = 0; x < _levelSystem.Levels[Level].Enemies.Length; x++)
         {
