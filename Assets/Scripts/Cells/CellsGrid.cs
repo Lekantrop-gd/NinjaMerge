@@ -166,19 +166,18 @@ public class CellsGrid : MonoBehaviour
         }
     }
 
-    [Button]
-    public void SpawnWeapon()
+    public bool SpawnWeapon()
     {
-        SpawnItem(_weaponPrefab);
+        return SpawnItem(_weaponPrefab);
     }
 
     [Button]
-    public void SpawnArmor()
+    public bool SpawnArmor()
     {
-        SpawnItem(_armorPrefab);
+        return SpawnItem(_armorPrefab);
     }
 
-    public void SpawnItem(Mergable item)
+    public bool SpawnItem(Mergable item)
     {
         if (_cells == null || _cells.Count < 1)
         {
@@ -196,7 +195,7 @@ public class CellsGrid : MonoBehaviour
 
         if (emptyCells.Count == 0)
         {
-            return;
+            return false;
         }
 
         Cell randomCell = emptyCells[UnityEngine.Random.Range(0, emptyCells.Count)];
@@ -208,6 +207,8 @@ public class CellsGrid : MonoBehaviour
         randomCell.Put(mergable);
 
         Save();
+
+        return true;
     }
 
     public void SpawnItem(Mergable item, int position)

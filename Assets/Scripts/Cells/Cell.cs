@@ -20,11 +20,6 @@ public class Cell : MonoBehaviour
         _context = mergable;
     }
 
-    public void Take()
-    {
-        _context = null;
-    }
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

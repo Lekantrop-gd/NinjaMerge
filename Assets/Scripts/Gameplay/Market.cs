@@ -49,11 +49,12 @@ public class Market : MonoBehaviour
     {
         if (_wallet.Balance >= PlayerPrefs.GetInt(WeaponPriceKey))
         {
-            _wallet.Take(PlayerPrefs.GetInt(WeaponPriceKey));
-            PlayerPrefs.SetInt(WeaponPriceKey, PlayerPrefs.GetInt(WeaponPriceKey) + _weaponPriceAddend);
-            PlayerPrefs.Save();
-            _cellsGrid.SpawnWeapon();
-            UpdatePrices();
+            if (_cellsGrid.SpawnWeapon()) {
+                _wallet.Take(PlayerPrefs.GetInt(WeaponPriceKey));
+                PlayerPrefs.SetInt(WeaponPriceKey, PlayerPrefs.GetInt(WeaponPriceKey) + _weaponPriceAddend);
+                PlayerPrefs.Save();
+                UpdatePrices();
+            }
         }
     }
 
@@ -61,11 +62,14 @@ public class Market : MonoBehaviour
     {
         if (_wallet.Balance >= PlayerPrefs.GetInt(ArmorPriceKey))
         {
-            _wallet.Take(PlayerPrefs.GetInt(ArmorPriceKey));
-            PlayerPrefs.SetInt(ArmorPriceKey, PlayerPrefs.GetInt(ArmorPriceKey) + _armorPriceAddend);
-            PlayerPrefs.Save();
-            _cellsGrid.SpawnArmor();
-            UpdatePrices();
+            if ( _cellsGrid.SpawnArmor())
+            {
+                _wallet.Take(PlayerPrefs.GetInt(ArmorPriceKey));
+                PlayerPrefs.SetInt(ArmorPriceKey, PlayerPrefs.GetInt(ArmorPriceKey) + _armorPriceAddend);
+                PlayerPrefs.Save();
+                UpdatePrices();
+            }
+            
         }
     }
 }

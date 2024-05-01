@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NaughtyAttributes;
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -56,6 +57,15 @@ public class Wallet : MonoBehaviour
             PlayerPrefs.SetInt(WalletKey, Balance + amount);
             PlayerPrefs.Save();
         }
+
+        UpdateBalance();
+    }
+
+    [Button]
+    public void Test()
+    {
+        PlayerPrefs.SetInt(WalletKey, Balance + 1000);
+        PlayerPrefs.Save();
 
         UpdateBalance();
     }
