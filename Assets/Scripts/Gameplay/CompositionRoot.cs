@@ -21,7 +21,7 @@ public class CompositionRoot : MonoBehaviour
     {
         Application.targetFrameRate = 1000;
 
-        _levelText.text = "Level " + Level.ToString();
+        _levelText.text = "Level " + (Level + 1).ToString();
 
         for (int x = 0; x < _levelSystem.Levels[Level].Enemies.Length; x++)
         {

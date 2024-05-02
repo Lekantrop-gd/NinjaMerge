@@ -8,7 +8,9 @@ public class Market : MonoBehaviour
     [SerializeField] private int _startArmorPrice;
     [SerializeField] private int _armorPriceAddend;
     [SerializeField] private TextMeshProUGUI _weaponPrice;
+    [SerializeField] private GameObject _weaponAdvert;
     [SerializeField] private TextMeshProUGUI _armorPrice;
+    [SerializeField] private GameObject _armorAdvert;
     [SerializeField] private CellsGrid _cellsGrid;
     [SerializeField] private Wallet _wallet;
 
@@ -25,6 +27,9 @@ public class Market : MonoBehaviour
         if (PlayerPrefs.HasKey(WeaponPriceKey))
         {
             _weaponPrice.text = PlayerPrefs.GetInt(WeaponPriceKey).ToString();
+
+            _weaponAdvert.SetActive(_wallet.Balance < PlayerPrefs.GetInt(WeaponPriceKey));
+            _weaponPrice.enabled = _wallet.Balance >= PlayerPrefs.GetInt(WeaponPriceKey);
         }
         else
         {
@@ -35,6 +40,9 @@ public class Market : MonoBehaviour
         if (PlayerPrefs.HasKey(ArmorPriceKey))
         {
             _armorPrice.text = PlayerPrefs.GetInt(ArmorPriceKey).ToString();
+
+            _armorAdvert.SetActive(_wallet.Balance < PlayerPrefs.GetInt(WeaponPriceKey));
+            _armorPrice.enabled = _wallet.Balance >= PlayerPrefs.GetInt(WeaponPriceKey);
         }
         else
         {
