@@ -41,8 +41,8 @@ public class Market : MonoBehaviour
         {
             _armorPrice.text = PlayerPrefs.GetInt(ArmorPriceKey).ToString();
 
-            _armorAdvert.SetActive(_wallet.Balance < PlayerPrefs.GetInt(WeaponPriceKey));
-            _armorPrice.enabled = _wallet.Balance >= PlayerPrefs.GetInt(WeaponPriceKey);
+            _armorAdvert.SetActive(_wallet.Balance < PlayerPrefs.GetInt(ArmorPriceKey));
+            _armorPrice.enabled = _wallet.Balance >= PlayerPrefs.GetInt(ArmorPriceKey);
         }
         else
         {
@@ -64,6 +64,10 @@ public class Market : MonoBehaviour
                 UpdatePrices();
             }
         }
+        else
+        {
+            //Play advert
+        }
     }
 
     public void BuyArmor()
@@ -77,7 +81,10 @@ public class Market : MonoBehaviour
                 PlayerPrefs.Save();
                 UpdatePrices();
             }
-            
+        }
+        else
+        {
+            //Play advert
         }
     }
 }
