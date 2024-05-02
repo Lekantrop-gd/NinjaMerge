@@ -128,7 +128,6 @@ public class Player : MonoBehaviour
         if (damage >= _health)
         {
             Defeat?.Invoke();
-            Destroy(gameObject);
         }
         else
         {

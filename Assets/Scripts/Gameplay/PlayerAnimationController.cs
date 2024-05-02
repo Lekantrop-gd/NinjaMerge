@@ -41,12 +41,13 @@ public class PlayerAnimationController : MonoBehaviour
 
     public void Run()
     {
-        _animator.SetTrigger(nameof(Run));
+        _animator.SetBool(nameof(Run), true);
     }
 
     public void Fight()
     {
-        _animator.SetTrigger(nameof(Fight));
+        _animator.SetBool(nameof(Run), false);
+        _animator.SetBool(nameof(Fight), true);
     }
 
     public void Won()
