@@ -16,6 +16,6 @@ public class PlayerApperanceChanger : ApperanceChanger
 
     public override void AddDamager()
     {
-        _playerModel.AddComponent<PlayerDamager>();
+        _playerModel.AddComponent<PlayerEventHandler>();
     }
 }

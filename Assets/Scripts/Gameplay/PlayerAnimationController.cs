@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Player))]
 public class PlayerAnimationController : MonoBehaviour
 {
+    [SerializeField] private UnityEvent _startGearShowcase;
+    [SerializeField] private UnityEvent _endGearShowcase;
+
     private Animator _animator;
 
     private void OnEnable()
@@ -14,6 +18,8 @@ public class PlayerAnimationController : MonoBehaviour
         Player.Run += Run;
         Player.Won += Won;
         Player.Defeat += Defeat;
+        PlayerEventHandler.StartGearShowcase += StartGearShowcase;
+        PlayerEventHandler.EndGearShowcase += EndGearShowcase;
     }
 
     private void OnDisable()
@@ -23,6 +29,8 @@ public class PlayerAnimationController : MonoBehaviour
         Player.Run -= Run;
         Player.Won -= Won;
         Player.Defeat -= Defeat;
+        PlayerEventHandler.StartGearShowcase -= StartGearShowcase;
+        PlayerEventHandler.EndGearShowcase -= EndGearShowcase;
     }
 
     public void OnAnimatorSet(Animator animator)
@@ -49,5 +57,15 @@ public class PlayerAnimationController : MonoBehaviour
     public void Defeat()
     {
         _animator.SetTrigger(nameof(Defeat));
+    }
+
+    public void StartGearShowcase()
+    {
+        _startGearShowcase?.Invoke();
+    }
+
+    public void EndGearShowcase()
+    {
+        _endGearShowcase?.Invoke();
     }
 }

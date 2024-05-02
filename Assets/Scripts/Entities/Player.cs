@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
         Enemy.Died += OnEnemyDied;
         WeaponCell.WeaponSet += OnWeaponSet;
         ArmorCell.ArmorSet += OnArmorSet;
-        PlayerDamager.Damage += DealDamage;
+        PlayerEventHandler.Damage += DealDamage;
     }
 
     private void OnDisable()
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
         Enemy.Died -= OnEnemyDied;
         WeaponCell.WeaponSet -= OnWeaponSet;
         ArmorCell.ArmorSet -= OnArmorSet;
-        PlayerDamager.Damage += DealDamage;
+        PlayerEventHandler.Damage += DealDamage;
     }
 
     private void OnWeaponSet(Weapon weapon)
