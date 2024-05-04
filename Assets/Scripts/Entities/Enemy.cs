@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator Attack(Player player)
     {
-        while (true)
+        while (player != null)
         {
             if (Vector3.Distance(transform.position, player.transform.position) > _reachDistance)
             {

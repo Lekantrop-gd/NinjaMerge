@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,6 +12,8 @@ public class CompositionRoot : MonoBehaviour
     [SerializeField] private int _startLoseReward;
     [SerializeField] private int _rewardAddend;
     [SerializeField] private TextMeshProUGUI _levelText;
+    [SerializeField] private EndScreen _endScreen;
+    [SerializeField] private int _delay;
 
     public readonly string LevelKey = nameof(LevelKey);
 
@@ -45,14 +47,19 @@ public class CompositionRoot : MonoBehaviour
     private void OnWon()
     {
         IncreaseLevel();
-        _wallet.Put(_startWinReward + _rewardAddend * Level);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartCoroutine(CallWithDelay(_startWinReward + _rewardAddend * Level, true));
     }
 
     private void OnDefeat()
     {
-        _wallet.Put(_startWinReward + _rewardAddend / 2 * Level);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartCoroutine(CallWithDelay(_startLoseReward + (_rewardAddend / 2) * Level, false));
+    }
+
+    private IEnumerator CallWithDelay(int reward, bool win)
+    {
+        yield return new WaitForSeconds(_delay);
+
+        _endScreen.Show(reward, win);
     }
 
     private void OnEnable()
@@ -65,5 +72,10 @@ public class CompositionRoot : MonoBehaviour
     {
         Player.Won -= OnWon;
         Player.Defeat -= OnDefeat;
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

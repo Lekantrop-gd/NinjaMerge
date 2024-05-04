@@ -87,12 +87,14 @@ public class Player : MonoBehaviour
         else
         {
             Won?.Invoke();
+            StopCoroutine(_attacking);
+            return;
         }
     }
 
     private IEnumerator Attack(Enemy enemy)
     {
-        while (true)
+        while (enemy != null)
         {
             if (Vector3.Distance(transform.position, enemy.transform.position) > _reachDistance)
             {

@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _detectingRadius: 50
   _reachDistance: 2.3
-  _animationSpeed: 5
+  _animationSpeed: 7
   _playerLayer:
     serializedVersion: 2
     m_Bits: 1024
