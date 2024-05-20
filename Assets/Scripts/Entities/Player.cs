@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        Enemy.Died += OnEnemyDied;
         WeaponCell.WeaponSet += OnWeaponSet;
         ArmorCell.ArmorSet += OnArmorSet;
         PlayerEventHandler.Damage += DealDamage;
@@ -32,7 +31,6 @@ public class Player : MonoBehaviour
 
     private void OnDisable()
     {
-        Enemy.Died -= OnEnemyDied;
         WeaponCell.WeaponSet -= OnWeaponSet;
         ArmorCell.ArmorSet -= OnArmorSet;
         PlayerEventHandler.Damage += DealDamage;
@@ -47,16 +45,6 @@ public class Player : MonoBehaviour
     {
         _armor = armor;
         _health = armor == null ? 0 : armor.ProtectionPoints;
-    }
-
-    private void OnEnemyDied(Enemy enemy) 
-    {
-        if (_enemies.Contains(enemy))
-        {
-            _enemies.Remove(enemy);
-        }
-
-        Fight();
     }
 
     public void StartFight()

@@ -2,35 +2,34 @@ using UnityEngine;
 
 public class EnemyAnimationController : MonoBehaviour
 {
+    [SerializeField] private Enemy _enemy;
     private Animator _animator;
     private bool _running;
     private bool _fighting;
-
 
     private void OnEnable()
     {
         _animator = transform.GetChild(0).GetComponent<Animator>();
 
-        Enemy.Run += Run;
-        Enemy.Fight += Fight;
+        _enemy.Run += Run;
+        _enemy.Fight += Fight;
+        _enemy.Died += Defeat;
         Player.Defeat += Won;
-        Enemy.Died += Defeat;
     }
 
     private void OnDisable()
     {
-        Enemy.Run -= Run;
-        Enemy.Fight -= Fight;
+        _enemy.Run -= Run;
+        _enemy.Fight -= Fight;
+        _enemy.Died -= Defeat;
         Player.Defeat -= Won;
-        Enemy.Died -= Defeat;
     }
 
     public void Run()
     {
         if (_running == false)
         {
-            _animator = transform.GetChild(0).GetComponent<Animator>();
-            _animator.SetTrigger(nameof(Run));
+            transform.GetChild(0).GetComponent<Animator>().SetTrigger(nameof(Run));
             _running = true;
         }
     }
@@ -39,18 +38,18 @@ public class EnemyAnimationController : MonoBehaviour
     {
         if (_fighting == false)
         {
-            _animator.SetTrigger(nameof(Fight));
+            transform.GetChild(0).GetComponent<Animator>().SetTrigger(nameof(Fight));
             _fighting = true;
         }
     }
 
     public void Won()
     {
-        _animator.SetTrigger(nameof(Won));
+        transform.GetChild(0).GetComponent<Animator>().SetTrigger(nameof(Won));
     }
 
     public void Defeat(Enemy enemy)
     {
-        _animator.SetTrigger(nameof(Defeat));
+        transform.GetChild(0).GetComponent<Animator>().SetTrigger(nameof(Defeat));
     }
 }

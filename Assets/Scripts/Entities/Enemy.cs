@@ -11,9 +11,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Weapon _weapon;
     [SerializeField] private ApperanceChanger _apperanceChanger;
 
-    public static event Action<Enemy> Died;
-    public static event Action Run;
-    public static event Action Fight;
+    public event Action<Enemy> Died;
+    public event Action Run;
+    public event Action Fight;
 
     private Coroutine _attacking;
     private int _health = 0;

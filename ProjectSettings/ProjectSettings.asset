@@ -16,7 +16,7 @@ PlayerSettings:
   productName: NinjaMerge
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 0.41960788, g: 0.9333334, b: 0.90196085, a: 1}
+  m_SplashScreenBackgroundColor: {r: 0.83921576, g: 0.41960788, b: 0, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1

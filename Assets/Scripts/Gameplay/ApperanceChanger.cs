@@ -1,4 +1,3 @@
-using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,12 +8,10 @@ public class ApperanceChanger : MonoBehaviour
     [SerializeField] private Transform _defaultHead;
     [SerializeField] private Transform _defaultFace;
     [SerializeField] private Transform _defaultPlayerModel;
-    [SerializeField] protected Transform _playerModel;
+    [SerializeField] protected Transform _model;
     [SerializeField] private WeaponSet _weaponSet;
     [SerializeField] private ArmorSet _armorSet;
     [SerializeField] private ModelRouter _router;
-
-    public static event Action<Animator> AnimatorSet;
 
     public void SetWeapon(Weapon weapon)
     {
@@ -65,18 +62,18 @@ public class ApperanceChanger : MonoBehaviour
             Instantiate(_router.RightHandRoot.GetChild(0), newRouter.RightHandRoot);
         }
 
-        Destroy(_playerModel.gameObject);
-        _playerModel = newPlayerModel;
+        Destroy(_model.gameObject);
+        _model = newPlayerModel;
         _router = newRouter;
 
         Instantiate(_defaultHead, _router.HeadRoot);
         Instantiate(_defaultFace, _router.FaceRoot);
 
-        AddDamager();
+        AddEventHandler();
     }
 
-    public virtual void AddDamager()
+    public virtual void AddEventHandler()
     {
-        _playerModel.AddComponent<EnemyEventHandler>();
+        _model.AddComponent<EnemyEventHandler>();
     }
 }

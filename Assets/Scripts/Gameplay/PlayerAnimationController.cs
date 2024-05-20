@@ -33,17 +33,11 @@ public class PlayerAnimationController : MonoBehaviour
         PlayerEventHandler.EndGearShowcase -= EndGearShowcase;
     }
 
-    public void OnAnimatorSet(Animator animator)
-    {
-        _animator = animator;
-        _animator.SetTrigger("GearShowcase");
-    }
-
     public void Run()
     {
         if (_runinng == false)
         {
-            _animator.SetTrigger(nameof(Run));
+            transform.GetChild(0).GetComponent<Animator>().SetTrigger(nameof(Run));
             _runinng = true;
         }
     }
@@ -52,19 +46,19 @@ public class PlayerAnimationController : MonoBehaviour
     {
         if (_fighting == false)
         {
-            _animator.SetTrigger(nameof(Fight));
+            transform.GetChild(0).GetComponent<Animator>().SetTrigger(nameof(Fight));
             _fighting = true;
         }
     }
 
     public void Won()
     {
-        _animator.SetTrigger(nameof(Won));
+        transform.GetChild(0).GetComponent<Animator>().SetTrigger(nameof(Won));
     }
 
     public void Defeat()
     {
-        _animator.SetTrigger(nameof(Defeat));
+        transform.GetChild(0).GetComponent<Animator>().SetTrigger(nameof(Defeat));
     }
 
     public void StartGearShowcase()

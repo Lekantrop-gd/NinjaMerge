@@ -770,7 +770,7 @@ MonoBehaviour:
   _defaultHead: {fileID: 4679220856652786191, guid: 930e75b2767c9994f9c1c8282a688236, type: 3}
   _defaultFace: {fileID: 7764562031160244838, guid: 6b681932e2c88fd44b7d18d393c1329b, type: 3}
   _defaultPlayerModel: {fileID: 6954376498369426056, guid: dcad22c2c58203c4095882498e722e08, type: 3}
-  _playerModel: {fileID: 1212618852}
+  _model: {fileID: 1212618852}
   _weaponSet: {fileID: 11400000, guid: 142cf3d7a2d356e44807d5c31a30c53c, type: 2}
   _armorSet: {fileID: 11400000, guid: a1564f9e2b81d634fb180b84e6b2fcc5, type: 2}
   _router: {fileID: 1212618854}

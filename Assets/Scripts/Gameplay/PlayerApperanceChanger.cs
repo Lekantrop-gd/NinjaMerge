@@ -17,9 +17,9 @@ public class PlayerApperanceChanger : ApperanceChanger
         ArmorCell.ArmorSet -= SetArmor;
     }
 
-    public override void AddDamager()
+    public override void AddEventHandler()
     {
-        _playerModel.AddComponent<PlayerEventHandler>();
-        _playerModel.GetComponent<Animator>().runtimeAnimatorController = _animator;
+        _model.AddComponent<PlayerEventHandler>();
+        _model.GetComponent<Animator>().runtimeAnimatorController = _animator;
     }
 }
