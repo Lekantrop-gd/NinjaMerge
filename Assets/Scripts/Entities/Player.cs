@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -16,8 +15,6 @@ public class Player : MonoBehaviour
     public static event Action Damage;
     public static event Action Run;
 
-    private List<Enemy> _enemies = new List<Enemy>();
-    private Coroutine _attacking;
     private Weapon _weapon;
     private Armor _armor;
     private Enemy _enemy;
@@ -47,42 +44,28 @@ public class Player : MonoBehaviour
         _health = armor == null ? 0 : armor.ProtectionPoints;
     }
 
-    public void StartFight()
+    public void Fight()
     {
         Collider[] enemiesColliders = Physics.OverlapSphere(transform.position, 
                                                             _detectingRadius, 
                                                             _enemyLayer);
         
-        foreach (Collider enemyCollider in enemiesColliders)
+        if (enemiesColliders.Length > 0)
         {
-            _enemies.Add(enemyCollider.GetComponent<Enemy>());
-        }
-
-        Fight();
-    }
-
-    private void Fight()
-    {
-        if (_attacking != null)
-        {
-            StopCoroutine(_attacking);
-        }
-
-        if (_enemies.Count > 0)
-        {
-            _attacking = StartCoroutine(Attack(_enemies[0]));
+            StartCoroutine(Attack(enemiesColliders[0].GetComponent<Enemy>()));
         }
         else
         {
             Won?.Invoke();
-            StopCoroutine(_attacking);
             return;
         }
     }
 
     private IEnumerator Attack(Enemy enemy)
     {
-        while (enemy != null)
+        Collider enemyCollider = enemy.GetComponent<Collider>();
+
+        while (enemy != null && enemyCollider.enabled)
         {
             if (Vector3.Distance(transform.position, enemy.transform.position) > _reachDistance)
             {
@@ -106,6 +89,8 @@ public class Player : MonoBehaviour
 
             yield return null;
         }
+
+        Fight();
     }
 
     public void DealDamage()
