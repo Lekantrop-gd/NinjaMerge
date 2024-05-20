@@ -90,7 +90,7 @@ public class Enemy : MonoBehaviour
     {
         Player.Won += OnWon;
         Player.Defeat += OnDefeat;
-        EnemyDamager.Damage += DealDamage;
+        EnemyEventHandler.Damage += DealDamage;
     }
 
     private void OnDisable()

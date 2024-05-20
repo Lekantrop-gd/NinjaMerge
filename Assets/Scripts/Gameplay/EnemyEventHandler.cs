@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class EnemyDamager : MonoBehaviour
+public class EnemyEventHandler : MonoBehaviour
 {
     public static event Action Damage;
 

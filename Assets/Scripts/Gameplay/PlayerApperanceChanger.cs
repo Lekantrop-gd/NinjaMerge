@@ -1,7 +1,10 @@
 ﻿using Unity.VisualScripting;
+using UnityEngine;
 
 public class PlayerApperanceChanger : ApperanceChanger
 {
+    [SerializeField] private RuntimeAnimatorController _animator;
+
     private void OnEnable()
     {
         WeaponCell.WeaponSet += SetWeapon;
@@ -17,5 +20,6 @@ public class PlayerApperanceChanger : ApperanceChanger
     public override void AddDamager()
     {
         _playerModel.AddComponent<PlayerEventHandler>();
+        _playerModel.GetComponent<Animator>().runtimeAnimatorController = _animator;
     }
 }

@@ -3,6 +3,9 @@ using UnityEngine;
 public class EnemyAnimationController : MonoBehaviour
 {
     private Animator _animator;
+    private bool _running;
+    private bool _fighting;
+
 
     private void OnEnable()
     {
@@ -24,13 +27,21 @@ public class EnemyAnimationController : MonoBehaviour
 
     public void Run()
     {
-        _animator = transform.GetChild(0).GetComponent<Animator>();
-        _animator.SetTrigger(nameof(Run));
+        if (_running == false)
+        {
+            _animator = transform.GetChild(0).GetComponent<Animator>();
+            _animator.SetTrigger(nameof(Run));
+            _running = true;
+        }
     }
 
     public void Fight()
     {
-        _animator.SetTrigger(nameof(Fight));
+        if (_fighting == false)
+        {
+            _animator.SetTrigger(nameof(Fight));
+            _fighting = true;
+        }
     }
 
     public void Won()

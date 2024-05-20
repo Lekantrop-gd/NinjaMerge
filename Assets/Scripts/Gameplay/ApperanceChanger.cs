@@ -13,7 +13,6 @@ public class ApperanceChanger : MonoBehaviour
     [SerializeField] private WeaponSet _weaponSet;
     [SerializeField] private ArmorSet _armorSet;
     [SerializeField] private ModelRouter _router;
-    [SerializeField] private RuntimeAnimatorController _animator;
 
     public static event Action<Animator> AnimatorSet;
 
@@ -73,14 +72,11 @@ public class ApperanceChanger : MonoBehaviour
         Instantiate(_defaultHead, _router.HeadRoot);
         Instantiate(_defaultFace, _router.FaceRoot);
 
-        _playerModel.GetComponent<Animator>().runtimeAnimatorController = _animator;
-        AnimatorSet?.Invoke(_playerModel.GetComponent<Animator>());
-
         AddDamager();
     }
 
     public virtual void AddDamager()
     {
-        _playerModel.AddComponent<EnemyDamager>();
+        _playerModel.AddComponent<EnemyEventHandler>();
     }
 }

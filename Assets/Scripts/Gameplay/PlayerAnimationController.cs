@@ -8,12 +8,13 @@ public class PlayerAnimationController : MonoBehaviour
     [SerializeField] private UnityEvent _endGearShowcase;
 
     private Animator _animator;
+    private bool _runinng;
+    private bool _fighting;
 
     private void OnEnable()
     {
         _animator = transform.GetChild(0).GetComponent<Animator>();
 
-        PlayerApperanceChanger.AnimatorSet += OnAnimatorSet;
         Player.Damage += Fight;
         Player.Run += Run;
         Player.Won += Won;
@@ -24,7 +25,6 @@ public class PlayerAnimationController : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerApperanceChanger.AnimatorSet -= OnAnimatorSet;
         Player.Damage -= Fight;
         Player.Run -= Run;
         Player.Won -= Won;
@@ -41,13 +41,20 @@ public class PlayerAnimationController : MonoBehaviour
 
     public void Run()
     {
-        _animator.SetBool(nameof(Run), true);
+        if (_runinng == false)
+        {
+            _animator.SetTrigger(nameof(Run));
+            _runinng = true;
+        }
     }
 
     public void Fight()
     {
-        _animator.SetBool(nameof(Run), false);
-        _animator.SetBool(nameof(Fight), true);
+        if (_fighting == false)
+        {
+            _animator.SetTrigger(nameof(Fight));
+            _fighting = true;
+        }
     }
 
     public void Won()
