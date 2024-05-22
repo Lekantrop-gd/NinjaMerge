@@ -4383,6 +4383,7 @@ GameObject:
   - component: {fileID: 630578750}
   - component: {fileID: 630578749}
   - component: {fileID: 630578748}
+  - component: {fileID: 630578751}
   m_Layer: 5
   m_Name: Fight
   m_TagString: Untagged
@@ -4502,10 +4503,46 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 630578745}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 630578751}
+        m_TargetAssemblyTypeName: ButtonsAnimator, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 630578748}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 978073801}
+        m_TargetAssemblyTypeName: ButtonsAnimator, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1851206416}
+        m_TargetAssemblyTypeName: ButtonsAnimator, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4539,30 +4576,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1487013320}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 978073797}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1851206412}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -4624,6 +4637,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630578745}
   m_CullTransparentMesh: 1
+--- !u!114 &630578751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630578745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14fad94a595a79340bc354e1ed0b264a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animation:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 1.0000002
+      outSlope: 1.0000002
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.1
+      value: 1.1
+      inSlope: 0.1529476
+      outSlope: 0.1529476
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.77093256
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7075994
+      value: 0.25944763
+      inSlope: -1.6767374
+      outSlope: -1.6767374
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.887302
+      outSlope: -0.887302
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _duration: 0.5
 --- !u!1 &651448543
 GameObject:
   m_ObjectHideFlags: 0
@@ -5113,6 +5181,7 @@ GameObject:
   - component: {fileID: 728167726}
   - component: {fileID: 728167725}
   - component: {fileID: 728167724}
+  - component: {fileID: 728167727}
   m_Layer: 5
   m_Name: Claim
   m_TagString: Untagged
@@ -5164,10 +5233,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -5198,6 +5267,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1514137289}
+        m_TargetAssemblyTypeName: EndScreen, Assembly-CSharp
+        m_MethodName: StopSpin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 728167724}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
@@ -5210,9 +5291,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1514137289}
-        m_TargetAssemblyTypeName: EndScreen, Assembly-CSharp
-        m_MethodName: StopSpin
+      - m_Target: {fileID: 728167727}
+        m_TargetAssemblyTypeName: UIAnimator, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5260,6 +5341,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728167722}
   m_CullTransparentMesh: 1
+--- !u!114 &728167727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728167722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14fad94a595a79340bc354e1ed0b264a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animation:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.1
+      inSlope: 0.04999999
+      outSlope: 0.04999999
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.2
+      value: 0.11
+      inSlope: -0.041666668
+      outSlope: -0.041666668
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.07
+      inSlope: 0.03333334
+      outSlope: 0.03333334
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7
+      value: 0.11
+      inSlope: -0.33419895
+      outSlope: -0.33419895
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14528008
+      outWeight: 0.21177728
+    - serializedVersion: 3
+      time: 0.82211775
+      value: 0.1031876
+      inSlope: -0.49090853
+      outSlope: -0.49090853
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.46173313
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.1
+      inSlope: -0.0179197
+      outSlope: -0.0179197
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _duration: 0.5
 --- !u!1001 &745669294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8038,6 +8192,7 @@ GameObject:
   - component: {fileID: 978073798}
   - component: {fileID: 978073800}
   - component: {fileID: 978073799}
+  - component: {fileID: 978073801}
   m_Layer: 5
   m_Name: Level
   m_TagString: Untagged
@@ -8103,6 +8258,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978073797}
   m_CullTransparentMesh: 1
+--- !u!114 &978073801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978073797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14fad94a595a79340bc354e1ed0b264a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animation:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 1.0000002
+      outSlope: 1.0000002
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.1
+      value: 1.1
+      inSlope: 0.1529476
+      outSlope: 0.1529476
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.77093256
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7075994
+      value: 0.25944763
+      inSlope: -1.6767374
+      outSlope: -1.6767374
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.887302
+      outSlope: -0.887302
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _duration: 0.5
 --- !u!1 &980008593
 GameObject:
   m_ObjectHideFlags: 0
@@ -9114,10 +9324,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -11043,6 +11253,7 @@ GameObject:
   - component: {fileID: 1487013324}
   - component: {fileID: 1487013323}
   - component: {fileID: 1487013322}
+  - component: {fileID: 1487013325}
   m_Layer: 5
   m_Name: SpawnArmor
   m_TagString: Untagged
@@ -11128,6 +11339,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1487013325}
+        m_TargetAssemblyTypeName: ButtonsAnimator, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1487013323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11166,6 +11389,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487013320}
   m_CullTransparentMesh: 1
+--- !u!114 &1487013325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487013320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14fad94a595a79340bc354e1ed0b264a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animation:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0.5000001
+      outSlope: 0.5000001
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.2
+      value: 1.1
+      inSlope: -0.41666663
+      outSlope: -0.41666663
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.7
+      inSlope: 0.33333343
+      outSlope: 0.33333343
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7
+      value: 1.1
+      inSlope: -0.33419895
+      outSlope: -0.33419895
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14528008
+      outWeight: 0.21177728
+    - serializedVersion: 3
+      time: 0.82211775
+      value: 1.0318762
+      inSlope: -0.49090853
+      outSlope: -0.49090853
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.46173313
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.17919835
+      outSlope: -0.17919835
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _duration: 0.5
 --- !u!1 &1499900423
 GameObject:
   m_ObjectHideFlags: 0
@@ -12221,6 +12517,7 @@ GameObject:
   - component: {fileID: 1702485401}
   - component: {fileID: 1702485400}
   - component: {fileID: 1702485399}
+  - component: {fileID: 1702485402}
   m_Layer: 5
   m_Name: SpawnWeapon
   m_TagString: Untagged
@@ -12306,6 +12603,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1702485402}
+        m_TargetAssemblyTypeName: ButtonsAnimator, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1702485400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12344,6 +12653,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702485397}
   m_CullTransparentMesh: 1
+--- !u!114 &1702485402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702485397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14fad94a595a79340bc354e1ed0b264a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animation:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0.5000001
+      outSlope: 0.5000001
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.2
+      value: 1.1
+      inSlope: -0.41666663
+      outSlope: -0.41666663
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.7
+      inSlope: 0.33333343
+      outSlope: 0.33333343
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7
+      value: 1.1
+      inSlope: -0.33419895
+      outSlope: -0.33419895
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14528008
+      outWeight: 0.21177728
+    - serializedVersion: 3
+      time: 0.82211775
+      value: 1.0318762
+      inSlope: -0.49090853
+      outSlope: -0.49090853
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.46173313
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.17919835
+      outSlope: -0.17919835
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _duration: 0.5
 --- !u!1 &1719244662
 GameObject:
   m_ObjectHideFlags: 0
@@ -12919,6 +13301,7 @@ GameObject:
   - component: {fileID: 1851206413}
   - component: {fileID: 1851206415}
   - component: {fileID: 1851206414}
+  - component: {fileID: 1851206416}
   m_Layer: 5
   m_Name: Coins
   m_TagString: Untagged
@@ -12985,6 +13368,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851206412}
   m_CullTransparentMesh: 1
+--- !u!114 &1851206416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851206412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14fad94a595a79340bc354e1ed0b264a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animation:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 1.0000002
+      outSlope: 1.0000002
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.1
+      value: 1.1
+      inSlope: 0.1529476
+      outSlope: 0.1529476
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.77093256
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7075994
+      value: 0.25944763
+      inSlope: -1.6767374
+      outSlope: -1.6767374
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.887302
+      outSlope: -0.887302
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _duration: 0.5
 --- !u!1 &1877775555
 GameObject:
   m_ObjectHideFlags: 0
