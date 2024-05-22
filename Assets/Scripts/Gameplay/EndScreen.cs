@@ -9,12 +9,12 @@ public class EndScreen : MonoBehaviour
     [SerializeField] private RectTransform _winTape;
     [SerializeField] private RectTransform _loseTape;
     [SerializeField] private RectTransform _wheelArrow;
-    [SerializeField] private int _spinSpeed;
     [SerializeField] private TextMeshProUGUI _rewardText;
     [SerializeField] private TextMeshProUGUI _multipliedRewardText;
     [SerializeField] private Wallet _wallet;
     [SerializeField] private CompositionRoot _compositionRoot;
     [SerializeField] private float _gameReloadDelay;
+    [SerializeField] private int _spinSpeed;
     [SerializeField] private Section[] _section;
 
     private int _multipliedReward;
@@ -85,6 +85,11 @@ public class EndScreen : MonoBehaviour
         _wallet.Put(_regularReward);
         StopCoroutine(_wheelSpinning);
         StartCoroutine(EndGame());
+    }
+
+    public void StopSpin()
+    {
+        _spinSpeed = 0;
     }
 
     private IEnumerator EndGame()

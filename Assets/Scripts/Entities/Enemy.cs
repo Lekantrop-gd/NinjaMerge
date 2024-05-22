@@ -10,14 +10,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] private LayerMask _playerLayer;
     [SerializeField] private Weapon _weapon;
     [SerializeField] private ApperanceChanger _apperanceChanger;
+    [SerializeField] private EnemyAnimationController _animationController;
 
     public event Action<Enemy> Died;
     public event Action Run;
     public event Action Fight;
 
     private Coroutine _attacking;
-    private int _health = 0;
     private Player _player;
+    private int _health = 0;
 
     public void Init(Weapon weapon, Armor armor)
     {
@@ -44,9 +45,11 @@ public class Enemy : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, player.transform.position) > _reachDistance)
             {
-                transform.position = Vector3.MoveTowards(transform.position, 
+                Vector3 newPosition = Vector3.MoveTowards(transform.position,
                                                          player.transform.position,
                                                          _animationSpeed * Time.deltaTime);
+
+                transform.position = new Vector3(transform.position.x, newPosition.y, newPosition.z);
 
                 Quaternion targetRotation = Quaternion.LookRotation(player.transform.position -
                                                                     transform.position);

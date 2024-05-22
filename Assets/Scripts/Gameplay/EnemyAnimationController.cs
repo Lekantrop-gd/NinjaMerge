@@ -3,14 +3,11 @@ using UnityEngine;
 public class EnemyAnimationController : MonoBehaviour
 {
     [SerializeField] private Enemy _enemy;
-    private Animator _animator;
     private bool _running;
     private bool _fighting;
 
     private void OnEnable()
     {
-        _animator = transform.GetChild(0).GetComponent<Animator>();
-
         _enemy.Run += Run;
         _enemy.Fight += Fight;
         _enemy.Died += Defeat;
@@ -51,5 +48,6 @@ public class EnemyAnimationController : MonoBehaviour
     public void Defeat(Enemy enemy)
     {
         transform.GetChild(0).GetComponent<Animator>().SetTrigger(nameof(Defeat));
+        Destroy(this);
     }
 }

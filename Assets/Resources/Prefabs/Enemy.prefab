@@ -49,13 +49,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectingRadius: 50
-  _reachDistance: 2.3
+  _reachDistance: 7
   _animationSpeed: 7
   _playerLayer:
     serializedVersion: 2
     m_Bits: 1024
   _weapon: {fileID: 0}
   _apperanceChanger: {fileID: 1301370287785773423}
+  _animationController: {fileID: 6944559090789289910}
 --- !u!114 &1301370287785773423
 MonoBehaviour:
   m_ObjectHideFlags: 0

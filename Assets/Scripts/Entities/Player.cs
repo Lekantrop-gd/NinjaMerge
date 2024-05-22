@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _reachDistance;
     [SerializeField] private float _detectingRadius;
     [SerializeField] private float _animationSpeed;
-    [SerializeField] private float _health;
+    [SerializeField] private int _startHealth;
 
     public static event Action Won;
     public static event Action Defeat;
@@ -18,9 +18,11 @@ public class Player : MonoBehaviour
     private Weapon _weapon;
     private Armor _armor;
     private Enemy _enemy;
+    private int _health;
 
     private void OnEnable()
     {
+        _health = _startHealth;
         WeaponCell.WeaponSet += OnWeaponSet;
         ArmorCell.ArmorSet += OnArmorSet;
         PlayerEventHandler.Damage += DealDamage;
@@ -41,7 +43,7 @@ public class Player : MonoBehaviour
     private void OnArmorSet(Armor armor)
     {
         _armor = armor;
-        _health = armor == null ? 0 : armor.ProtectionPoints;
+        _health = armor == null ? _startHealth : armor.ProtectionPoints;
     }
 
     public void Fight()
