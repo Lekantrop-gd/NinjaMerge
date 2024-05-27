@@ -104,6 +104,7 @@ public class Player : MonoBehaviour
     {
         if (damage >= _health)
         {
+            _health = 0;
             Defeat?.Invoke();
         }
         else

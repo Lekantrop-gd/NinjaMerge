@@ -2,6 +2,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EndScreen : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class EndScreen : MonoBehaviour
     [SerializeField] private CompositionRoot _compositionRoot;
     [SerializeField] private float _gameReloadDelay;
     [SerializeField] private int _spinSpeed;
+    [SerializeField] private UnityEvent _shown;
     [SerializeField] private Section[] _section;
 
     private int _multipliedReward;
@@ -45,6 +47,7 @@ public class EndScreen : MonoBehaviour
         _rewardText.text =
             reward >= 1000 ? ((reward / 1000f).ToString("0.00") + "k") : reward.ToString();
         _wheelSpinning = StartCoroutine(SpinWheel(reward));
+        _shown.Invoke();
     }
 
     private IEnumerator SpinWheel(int reward)

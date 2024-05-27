@@ -98,12 +98,12 @@ public class CellsGrid : MonoBehaviour
 
     private void OnEnable()
     {
-        Interactor.Merged += Save;
+        Interactor.Updated += Save;
     }
 
     private void OnDisable()
     {
-        Interactor.Merged -= Save;
+        Interactor.Updated -= Save;
     }
 
     public void Save()

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Interactor : MonoBehaviour
 {
@@ -9,8 +10,11 @@ public class Interactor : MonoBehaviour
     [SerializeField] private LayerMask _cellLayer;
     [SerializeField] private LayerMask _mergingDeskLayer;
     [SerializeField] private LayerMask _playerLayer;
+    [SerializeField] private UnityEvent _take;
+    [SerializeField] private UnityEvent _put;
+    [SerializeField] private UnityEvent _merged;
 
-    public static event Action Merged;
+    public static event Action Updated;
 
     private Collider _collider;
     private Coroutine _following;
@@ -31,7 +35,7 @@ public class Interactor : MonoBehaviour
     private void OnMouseUp()
     {
         Release();
-        Merged?.Invoke();
+        Updated?.Invoke();
         _collider.enabled = true;
     }
 
@@ -50,6 +54,7 @@ public class Interactor : MonoBehaviour
                     _following = StartCoroutine(FollowPointer(cell.Context));
                     _previousCell = cell;
                     _interacted = true;
+                    _take?.Invoke();
                 }
             }
         }
@@ -118,6 +123,8 @@ public class Interactor : MonoBehaviour
 
                     superior.transform.position = cell.transform.position;
 
+                    _merged?.Invoke();
+
                     _previousCell.Put(superior);
                     cell.Put(null);
                 }
@@ -132,6 +139,7 @@ public class Interactor : MonoBehaviour
 
                 _previousCell.Put(cell.Context);
                 cell.Put(temporaryContext);
+                _put?.Invoke();
             }
 
             else
