@@ -22,7 +22,7 @@ public class Market : MonoBehaviour
         UpdatePrices();
     }
 
-    private void UpdatePrices()
+    public void UpdatePrices()
     {
         if (PlayerPrefs.HasKey(WeaponPriceKey))
         {

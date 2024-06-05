@@ -14,6 +14,7 @@ public class CompositionRoot : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _levelText;
     [SerializeField] private EndScreen _endScreen;
     [SerializeField] private int _delay;
+    [SerializeField] private Market _market;
 
     public readonly string LevelKey = nameof(LevelKey);
 
@@ -24,6 +25,7 @@ public class CompositionRoot : MonoBehaviour
         Application.targetFrameRate = 1000;
 
         _levelText.text = "Level " + (Level + 1).ToString();
+        _market.UpdatePrices();
 
         for (int x = 0; x < _levelSystem.Levels[Level].Enemies.Length; x++)
         {

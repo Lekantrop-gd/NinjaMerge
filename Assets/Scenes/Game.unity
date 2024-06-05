@@ -913,6 +913,7 @@ MonoBehaviour:
   _levelText: {fileID: 159639015}
   _endScreen: {fileID: 1514137289}
   _delay: 2
+  _market: {fileID: 78467092}
 --- !u!4 &78467091
 Transform:
   m_ObjectHideFlags: 0
@@ -13351,7 +13352,7 @@ MonoBehaviour:
   _wallet: {fileID: 78467089}
   _compositionRoot: {fileID: 78467090}
   _gameReloadDelay: 2
-  _spinSpeed: 200
+  _spinSpeed: 360
   _shown:
     m_PersistentCalls:
       m_Calls:
