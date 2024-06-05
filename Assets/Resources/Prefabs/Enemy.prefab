@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectingRadius: 50
-  _reachDistance: 7
+  _reachDistance: 5
   _animationSpeed: 7
   _playerLayer:
     serializedVersion: 2
@@ -62,6 +62,7 @@ MonoBehaviour:
   _fightSounds:
   - {fileID: -9094042090256418733}
   - {fileID: 8319713976041340655}
+  _health: 0
 --- !u!114 &1301370287785773423
 MonoBehaviour:
   m_ObjectHideFlags: 0

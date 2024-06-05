@@ -1079,7 +1079,7 @@ MonoBehaviour:
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 512
-  _reachDistance: 7
+  _reachDistance: 5
   _detectingRadius: 50
   _animationSpeed: 7
   _startHealth: 1
