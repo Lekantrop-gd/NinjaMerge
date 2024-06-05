@@ -54,7 +54,7 @@ public class EndScreen : MonoBehaviour
     {
         while (true)
         {
-            _wheelArrow.Rotate(Vector3.forward * _spinSpeed * Time.deltaTime);
+            _wheelArrow.Rotate(0, 0, _spinSpeed * Time.deltaTime);
 
             int rotation = (int)_wheelArrow.localEulerAngles.z;
 
