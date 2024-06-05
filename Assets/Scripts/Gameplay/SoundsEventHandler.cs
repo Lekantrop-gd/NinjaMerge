@@ -12,6 +12,12 @@ public class SoundsEventHandler : MonoBehaviour
         Player.Defeat += OnDefeat;
     }
 
+    private void OnDisable()
+    {
+        Player.Won -= OnWin;
+        Player.Defeat -= OnDefeat;
+    }
+
     private void OnDefeat()
     {
         _lose?.Invoke();

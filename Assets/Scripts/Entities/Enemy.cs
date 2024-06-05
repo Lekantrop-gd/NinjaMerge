@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Weapon _weapon;
     [SerializeField] private ApperanceChanger _apperanceChanger;
     [SerializeField] private EnemyAnimationController _animationController;
+    [SerializeField] private AudioSource[] _fightSounds;
 
     public event Action<Enemy> Died;
     public event Action Run;
@@ -18,7 +19,7 @@ public class Enemy : MonoBehaviour
 
     private Coroutine _attacking;
     private Player _player;
-    private int _health = 0;
+    [SerializeField] private int _health = 0;
 
     public void Init(Weapon weapon, Armor armor)
     {
@@ -72,6 +73,7 @@ public class Enemy : MonoBehaviour
     public void DealDamage()
     {
         _player.TakeDamage(_weapon == null ? 0 : _weapon.Damage);
+        _fightSounds[UnityEngine.Random.Range(0, _fightSounds.Length)].Play();
     }
 
     public void TakeDamage(int damage)
@@ -100,6 +102,7 @@ public class Enemy : MonoBehaviour
     {
         Player.Won -= OnWon;
         Player.Defeat -= OnDefeat;
+        EnemyEventHandler.Damage -= DealDamage;
     }
 
     private void OnDefeat()

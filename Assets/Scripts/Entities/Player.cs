@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Xml.Linq;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -9,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _detectingRadius;
     [SerializeField] private float _animationSpeed;
     [SerializeField] private int _startHealth;
+    [SerializeField] private AudioSource[] _fightSounds;
 
     public static event Action Won;
     public static event Action Defeat;
@@ -18,7 +20,7 @@ public class Player : MonoBehaviour
     private Weapon _weapon;
     private Armor _armor;
     private Enemy _enemy;
-    private int _health;
+    [SerializeField] private int _health;
 
     private void OnEnable()
     {
@@ -32,7 +34,7 @@ public class Player : MonoBehaviour
     {
         WeaponCell.WeaponSet -= OnWeaponSet;
         ArmorCell.ArmorSet -= OnArmorSet;
-        PlayerEventHandler.Damage += DealDamage;
+        PlayerEventHandler.Damage -= DealDamage;
     }
 
     private void OnWeaponSet(Weapon weapon)
@@ -98,6 +100,7 @@ public class Player : MonoBehaviour
     public void DealDamage()
     {
         _enemy.TakeDamage(_weapon == null ? 0 : _weapon.Damage);
+        _fightSounds[UnityEngine.Random.Range(0, _fightSounds.Length)].Play();
     }
 
     public void TakeDamage(int damage)
