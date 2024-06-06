@@ -11,15 +11,15 @@ public class Player : MonoBehaviour
     [SerializeField] private int _startHealth;
     [SerializeField] private AudioSource[] _fightSounds;
 
-    public static event Action Won;
-    public static event Action Defeat;
-    public static event Action Damage;
-    public static event Action Run;
-
     private Weapon _weapon;
     private Armor _armor;
     private Enemy _enemy;
     private int _health;
+
+    public static event Action Won;
+    public static event Action Defeat;
+    public static event Action Damage;
+    public static event Action Run;
 
     private void OnEnable()
     {
@@ -36,22 +36,37 @@ public class Player : MonoBehaviour
         PlayerEventHandler.Damage -= DealDamage;
     }
 
-    private void OnWeaponSet(Weapon weapon)
+    private void OnDrawGizmos()
     {
-        _weapon = weapon;
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, _detectingRadius);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, _reachDistance);
     }
 
-    private void OnArmorSet(Armor armor)
+    public void TakeDamage(int damage)
     {
-        _armor = armor;
-        _health = armor == null ? _startHealth : armor.ProtectionPoints;
+        if (damage >= _health)
+        {
+            _health = 0;
+            Defeat?.Invoke();
+        }
+        else
+        {
+            _health -= damage;
+        }
+    }
+
+    public void DealDamage()
+    {
+        _enemy.TakeDamage(_weapon == null ? 0 : _weapon.Damage);
+        _fightSounds[UnityEngine.Random.Range(0, _fightSounds.Length)].Play();
     }
 
     public void Fight()
     {
         Collider[] enemiesColliders = Physics.OverlapSphere(transform.position, 
-                                                            _detectingRadius, 
-                                                            _enemyLayer);
+            _detectingRadius, _enemyLayer);
 
         if (enemiesColliders.Length > 0)
         {
@@ -76,15 +91,14 @@ public class Player : MonoBehaviour
             if (Vector3.Distance(transform.position, enemy.transform.position) > _reachDistance)
             {
                 transform.position = Vector3.MoveTowards(transform.position, 
-                                                          enemy.transform.position, 
-                                                          _animationSpeed * Time.deltaTime);
+                    enemy.transform.position, _animationSpeed * Time.deltaTime);
                 
                 Quaternion targetRotation = Quaternion.LookRotation(enemy.transform.position - 
-                                                                    transform.position);
+                    transform.position);
                 
-                transform.rotation = Quaternion.Slerp(transform.rotation, 
-                                                       targetRotation, 
-                                                       _animationSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 
+                    _animationSpeed * Time.deltaTime);
+                
                 Run?.Invoke();
             }
             else
@@ -99,30 +113,14 @@ public class Player : MonoBehaviour
         Fight();
     }
 
-    public void DealDamage()
+    private void OnWeaponSet(Weapon weapon)
     {
-        _enemy.TakeDamage(_weapon == null ? 0 : _weapon.Damage);
-        _fightSounds[UnityEngine.Random.Range(0, _fightSounds.Length)].Play();
+        _weapon = weapon;
     }
 
-    public void TakeDamage(int damage)
+    private void OnArmorSet(Armor armor)
     {
-        if (damage >= _health)
-        {
-            _health = 0;
-            Defeat?.Invoke();
-        }
-        else
-        {
-            _health -= damage;
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, _detectingRadius);
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, _reachDistance);
+        _armor = armor;
+        _health = armor == null ? _startHealth : armor.ProtectionPoints;
     }
 }
