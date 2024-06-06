@@ -13,17 +13,21 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyAnimationController _animationController;
     [SerializeField] private AudioSource[] _fightSounds;
 
-    public event Action<Enemy> Died;
-    public event Action Run;
-    public event Action Fight;
-
     private Coroutine _attacking;
     private Player _player;
     private int _health = 0;
 
+    public bool Alive { get; private set; }
+
+    public event Action<Enemy> Died;
+    public event Action Run;
+    public event Action Fight;
+
+
     public void Init(Weapon weapon, Armor armor)
     {
         _weapon = weapon;
+        Alive = true;
 
         if (armor != null)
             _health = armor.ProtectionPoints;
@@ -42,7 +46,7 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator Attack(Player player)
     {
-        while (player != null)
+        while (player.Alive)
         {
             if (Vector3.Distance(transform.position, player.transform.position) > _reachDistance)
             {
@@ -83,7 +87,7 @@ public class Enemy : MonoBehaviour
             _health = 0;
             Died?.Invoke(this);
             StopCoroutine(_attacking);
-            Destroy(this);
+            Alive = false;
             GetComponent<Collider>().enabled = false;
         }
         else

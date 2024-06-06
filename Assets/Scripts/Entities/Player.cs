@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     private Enemy _enemy;
     private int _health;
 
+    public bool Alive { get; private set; }
+
     public static event Action Won;
     public static event Action Defeat;
     public static event Action Damage;
@@ -53,6 +55,7 @@ public class Player : MonoBehaviour
         if (damage >= _health)
         {
             _health = 0;
+            Alive = false;
             Defeat?.Invoke();
             Debug.Log("Defeat");
         }
@@ -70,6 +73,8 @@ public class Player : MonoBehaviour
 
     public void Fight()
     {
+        Alive = true;
+
         Collider[] enemiesColliders = Physics.OverlapSphere(transform.position, 
             _detectingRadius, _enemyLayer);
 
@@ -91,11 +96,8 @@ public class Player : MonoBehaviour
 
     private IEnumerator Attack(Enemy enemy)
     {
-        Collider enemyCollider = enemy.GetComponent<Collider>();
-
-        while (enemy != null && enemyCollider.enabled)
+        while (enemy != null && enemy.Alive)
         {
-
             if (Vector3.Distance(transform.position, enemy.transform.position) > _reachDistance)
             {
                 transform.position = Vector3.MoveTowards(transform.position, 
