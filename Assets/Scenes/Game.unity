@@ -13416,7 +13416,7 @@ MonoBehaviour:
   - _start: 315
     _medium: 330
     _end: 345
-    _multiplier: 2
+    _multiplier: 4
 --- !u!1001 &1521293771
 PrefabInstance:
   m_ObjectHideFlags: 0
