@@ -46,10 +46,15 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (_health == 0)
+        {
+            return;
+        }
         if (damage >= _health)
         {
             _health = 0;
             Defeat?.Invoke();
+            Debug.Log("Defeat");
         }
         else
         {
@@ -77,6 +82,8 @@ public class Player : MonoBehaviour
             if (_health > 0)
             {
                 Won?.Invoke();
+                StartCoroutine(Win());
+                Debug.Log("Won");
             }
             return;
         }
@@ -88,17 +95,18 @@ public class Player : MonoBehaviour
 
         while (enemy != null && enemyCollider.enabled)
         {
+
             if (Vector3.Distance(transform.position, enemy.transform.position) > _reachDistance)
             {
                 transform.position = Vector3.MoveTowards(transform.position, 
                     enemy.transform.position, _animationSpeed * Time.deltaTime);
-                
-                Quaternion targetRotation = Quaternion.LookRotation(enemy.transform.position - 
-                    transform.position);
-                
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 
+
+                Quaternion targetRotation = Quaternion.LookRotation(enemy.transform.position -
+                        transform.position);
+
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation,
                     _animationSpeed * Time.deltaTime);
-                
+
                 Run?.Invoke();
             }
             else
@@ -111,6 +119,21 @@ public class Player : MonoBehaviour
         }
 
         Fight();
+    }
+
+    private IEnumerator Win()
+    {
+        while (true)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.identity, 
+                Time.deltaTime * _animationSpeed / 2);
+
+            transform.GetChild(0).transform.rotation = Quaternion.Slerp(
+                transform.GetChild(0).transform.rotation, Quaternion.identity,
+                Time.deltaTime * _animationSpeed / 2);
+
+            yield return null;
+        }
     }
 
     private void OnWeaponSet(Weapon weapon)

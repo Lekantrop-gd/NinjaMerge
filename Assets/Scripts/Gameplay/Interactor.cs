@@ -35,7 +35,6 @@ public class Interactor : MonoBehaviour
     private void OnMouseUp()
     {
         Release();
-        Updated?.Invoke();
         _collider.enabled = true;
     }
 
@@ -149,6 +148,7 @@ public class Interactor : MonoBehaviour
         }
 
         _interacted = false;
+        Updated?.Invoke();
     }
 
     private IEnumerator FollowPointer(Mergable context)

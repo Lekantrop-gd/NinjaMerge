@@ -83,6 +83,7 @@ public class Enemy : MonoBehaviour
             _health = 0;
             Died?.Invoke(this);
             StopCoroutine(_attacking);
+            Destroy(this);
             GetComponent<Collider>().enabled = false;
         }
         else
