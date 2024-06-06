@@ -907,8 +907,8 @@ MonoBehaviour:
   _wallet: {fileID: 78467089}
   _levelSystem: {fileID: 11400000, guid: 6d0e80530d932b843b01b58d7ee70d4c, type: 2}
   _spawner: {fileID: 214586679}
-  _startWinReward: 100
-  _startLoseReward: 50
+  _startWinReward: 200
+  _startLoseReward: 100
   _rewardAddend: 100
   _levelText: {fileID: 159639015}
   _endScreen: {fileID: 1514137289}

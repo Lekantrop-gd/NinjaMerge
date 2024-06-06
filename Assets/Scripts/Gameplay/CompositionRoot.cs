@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using CrazyGames;
 
 public class CompositionRoot : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class CompositionRoot : MonoBehaviour
 
     private void Awake()
     {
+        CrazySDK.Init(() => { CrazySDK.Game.GameplayStart(); });
+
         Application.targetFrameRate = 1000;
 
         _levelText.text = "Level " + (Level + 1).ToString();
@@ -61,6 +64,7 @@ public class CompositionRoot : MonoBehaviour
     {
         yield return new WaitForSeconds(_delay);
 
+        CrazySDK.Game.GameplayStop();
         _endScreen.Show(reward, win);
     }
 

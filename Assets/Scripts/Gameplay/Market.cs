@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using CrazyGames;
 
 public class Market : MonoBehaviour
 {
@@ -66,7 +67,10 @@ public class Market : MonoBehaviour
         }
         else
         {
-            //Play advert
+            if (_cellsGrid.SpawnWeapon())
+            {
+                CrazySDK.Ad.RequestAd(CrazyAdType.Rewarded, null, null, null);
+            }
         }
     }
 
@@ -84,7 +88,10 @@ public class Market : MonoBehaviour
         }
         else
         {
-            //Play advert
+            if (_cellsGrid.SpawnArmor())
+            {
+                CrazySDK.Ad.RequestAd(CrazyAdType.Rewarded, null, null, null);
+            }
         }
     }
 }

@@ -1,3 +1,4 @@
+using CrazyGames;
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
@@ -138,6 +139,8 @@ public class CellsGrid : MonoBehaviour
             PlayerPrefs.SetString(ArmorKey, null);
 
         PlayerPrefs.Save();
+
+        CrazySDK.User.SyncUnityGameData();
     }
 
     [Button]

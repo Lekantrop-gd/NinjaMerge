@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrazyGames;
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -78,9 +79,12 @@ public class EndScreen : MonoBehaviour
 
     public void TakeReward()
     {
-        _wallet.Put(_multipliedReward);
-        StopCoroutine(_wheelSpinning);
-        StartCoroutine(EndGame());
+        CrazySDK.Ad.RequestAd(CrazyAdType.Rewarded, null, null, () =>
+        {
+            _wallet.Put(_multipliedReward);
+            StopCoroutine(_wheelSpinning);
+            StartCoroutine(EndGame());
+        });
     }
 
     public void LoseReward()
