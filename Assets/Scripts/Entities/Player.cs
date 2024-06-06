@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     private Weapon _weapon;
     private Armor _armor;
     private Enemy _enemy;
-    [SerializeField] private int _health;
+    private int _health;
 
     private void OnEnable()
     {
@@ -52,14 +52,17 @@ public class Player : MonoBehaviour
         Collider[] enemiesColliders = Physics.OverlapSphere(transform.position, 
                                                             _detectingRadius, 
                                                             _enemyLayer);
-        
+
         if (enemiesColliders.Length > 0)
         {
             StartCoroutine(Attack(enemiesColliders[0].GetComponent<Enemy>()));
         }
         else
         {
-            Won?.Invoke();
+            if (_health > 0)
+            {
+                Won?.Invoke();
+            }
             return;
         }
     }

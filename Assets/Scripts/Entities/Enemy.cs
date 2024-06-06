@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
 
     private Coroutine _attacking;
     private Player _player;
-    [SerializeField] private int _health = 0;
+    private int _health = 0;
 
     public void Init(Weapon weapon, Armor armor)
     {
@@ -78,13 +78,12 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (damage <= 0)
-            return;
-        else if (damage >= _health)
+        if (damage >= _health)
         {
+            _health = 0;
+            Died?.Invoke(this);
             StopCoroutine(_attacking);
             GetComponent<Collider>().enabled = false;
-            Died?.Invoke(this);
         }
         else
         {
