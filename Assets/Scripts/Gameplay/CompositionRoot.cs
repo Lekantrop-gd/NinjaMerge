@@ -25,7 +25,7 @@ public class CompositionRoot : MonoBehaviour
     {
         Application.targetFrameRate = -1;
 
-        CrazySDK.Init(() => { CrazySDK.Game.GameplayStart(); });
+        CrazySDK.Init(() => CrazySDK.Game.GameplayStart() );
 
         _levelText.text = "Level " + (Level + 1).ToString();
         _market.UpdatePrices();
@@ -37,15 +37,26 @@ public class CompositionRoot : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        Player.Won += OnWon;
+        Player.Defeat += OnDefeat;
+    }
+
+    private void OnDisable()
+    {
+        Player.Won -= OnWon;
+        Player.Defeat -= OnDefeat;
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void IncreaseLevel()
     {
         PlayerPrefs.SetInt(LevelKey, Level + 1);
-        PlayerPrefs.Save();
-    }
-
-    public void ClearPlayerPrefs()
-    {
-        PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
     }
 
@@ -66,22 +77,5 @@ public class CompositionRoot : MonoBehaviour
 
         CrazySDK.Game.GameplayStop();
         _endScreen.Show(reward, win);
-    }
-
-    private void OnEnable()
-    {
-        Player.Won += OnWon;
-        Player.Defeat += OnDefeat;
-    }
-
-    private void OnDisable()
-    {
-        Player.Won -= OnWon;
-        Player.Defeat -= OnDefeat;
-    }
-
-    public void ReloadScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
