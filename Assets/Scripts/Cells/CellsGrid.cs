@@ -15,7 +15,6 @@ public class CellsGrid : MonoBehaviour
     [SerializeField] private ArmorCell _armorCell;
     [SerializeField] private Cell _cellPreafab;
     [SerializeField] private Transform _itemsRoot;
-    
     [SerializeField] private int _rows;
     [SerializeField] private int _columns;
 
@@ -24,6 +23,22 @@ public class CellsGrid : MonoBehaviour
     public readonly string ArmorKey = nameof(ArmorKey);
 
     private List<Cell> _cells = new List<Cell>();
+
+    public bool FreeCell 
+    { 
+        get 
+        {
+            for (int x = 0; x < _cells.Count; x++)
+            {
+                if (_cells[x].Context == null)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+    }
 
     [Serializable]
     public class SavingData

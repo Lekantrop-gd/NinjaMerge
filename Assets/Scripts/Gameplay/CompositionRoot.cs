@@ -16,6 +16,7 @@ public class CompositionRoot : MonoBehaviour
     [SerializeField] private EndScreen _endScreen;
     [SerializeField] private int _delay;
     [SerializeField] private Market _market;
+    [SerializeField] private RectTransform _gameBeatScreen;
 
     public readonly string LevelKey = nameof(LevelKey);
 
@@ -24,11 +25,20 @@ public class CompositionRoot : MonoBehaviour
     private void Awake()
     {
         Application.targetFrameRate = -1;
+        
+        if (Level >= _levelSystem.Levels.Length)
+        {
+            CrazySDK.Init(() => CrazySDK.Game.HappyTime());
 
-        CrazySDK.Init(() => CrazySDK.Game.GameplayStart() );
+            _gameBeatScreen.gameObject.SetActive(true);
+            return;
+        }
+
+        CrazySDK.Init(() => CrazySDK.Game.GameplayStart());
 
         _levelText.text = "Level " + (Level + 1).ToString();
         _market.UpdatePrices();
+
 
         for (int x = 0; x < _levelSystem.Levels[Level].Enemies.Length; x++)
         {
@@ -58,6 +68,13 @@ public class CompositionRoot : MonoBehaviour
     {
         PlayerPrefs.SetInt(LevelKey, Level + 1);
         PlayerPrefs.Save();
+    }
+
+    public void ClearProgress()
+    {
+        PlayerPrefs.DeleteKey(LevelKey);
+        PlayerPrefs.Save();
+        ReloadScene();
     }
 
     private void OnWon()

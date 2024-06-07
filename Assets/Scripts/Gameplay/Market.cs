@@ -65,13 +65,6 @@ public class Market : MonoBehaviour
                 UpdatePrices();
             }
         }
-        else
-        {
-            if (_cellsGrid.SpawnWeapon())
-            {
-                CrazySDK.Ad.RequestAd(CrazyAdType.Rewarded, null, null, null);
-            }
-        }
     }
 
     public void BuyArmor()
@@ -86,12 +79,21 @@ public class Market : MonoBehaviour
                 UpdatePrices();
             }
         }
-        else
+    }
+
+    public void RequestWeapon()
+    {
+        if (_cellsGrid.FreeCell)
         {
-            if (_cellsGrid.SpawnArmor())
-            {
-                CrazySDK.Ad.RequestAd(CrazyAdType.Rewarded, null, null, null);
-            }
+            CrazySDK.Ad.RequestAd(CrazyAdType.Rewarded, null, null, () => _cellsGrid.SpawnWeapon());
+        }
+    }
+
+    public void RequestArmor()
+    {
+        if (_cellsGrid.FreeCell)
+        {
+            CrazySDK.Ad.RequestAd(CrazyAdType.Rewarded, null, null, () => _cellsGrid.SpawnArmor());
         }
     }
 }
