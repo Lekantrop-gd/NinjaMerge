@@ -23,9 +23,9 @@ public class CompositionRoot : MonoBehaviour
 
     private void Awake()
     {
-        CrazySDK.Init(() => { CrazySDK.Game.GameplayStart(); });
+        Application.targetFrameRate = -1;
 
-        Application.targetFrameRate = 1000;
+        CrazySDK.Init(() => { CrazySDK.Game.GameplayStart(); });
 
         _levelText.text = "Level " + (Level + 1).ToString();
         _market.UpdatePrices();
