@@ -56,7 +56,7 @@ public class CellsGrid : MonoBehaviour
                 {
                     if (PlayerPrefs.GetString(WeaponKey) == _weaponSet.WeaponLinks[x].Weapon.name)
                     {
-                        Mergable mergable = Instantiate(_weaponSet.WeaponLinks[x].Weapon, Vector3.zero, Quaternion.identity);
+                        Mergable mergable = Instantiate(_weaponSet.WeaponLinks[x].Weapon, _itemsRoot);
 
                         mergable.transform.position = _weaponCell.transform.position;
 
@@ -74,7 +74,7 @@ public class CellsGrid : MonoBehaviour
                 {
                     if (PlayerPrefs.GetString(ArmorKey) == _armorSet.ArmorLinks[x].Armor.name)
                     {
-                        Mergable mergable = Instantiate(_armorSet.ArmorLinks[x].Armor, Vector3.zero, Quaternion.identity);
+                        Mergable mergable = Instantiate(_armorSet.ArmorLinks[x].Armor, _itemsRoot);
 
                         mergable.transform.position = _armorCell.transform.position;
 
@@ -165,11 +165,6 @@ public class CellsGrid : MonoBehaviour
         for (int child = transform.childCount - 1; child >= 0; child--)
         {
             DestroyImmediate(transform.GetChild(child).gameObject);
-        }
-
-        for (int child = _itemsRoot.childCount - 1; child >= 0; child--)
-        {
-            DestroyImmediate(_itemsRoot.GetChild(child).gameObject);
         }
 
         for (int row = 0; row < _rows; row++)
