@@ -25,7 +25,6 @@ public class Wallet : MonoBehaviour
 
     public void UpdateBalance()
     {
-        
         _balanceText.text = Balance >= 1000 ? 
             ((Balance / 1000f).ToString("0.00") + "k") : (Balance.ToString());
     }

@@ -28,12 +28,10 @@ public class EndScreen : MonoBehaviour
     public struct Section
     {
         [SerializeField] private int _start;
-        [SerializeField] private int _medium;
         [SerializeField] private int _end;
         [SerializeField] private int _multiplier;
 
         public int Start => _start;
-        public int Medium => _medium;
         public int End => _end;
         public int Multiplier => _multiplier;
     }
@@ -61,8 +59,20 @@ public class EndScreen : MonoBehaviour
 
             foreach (var section in _section)
             {
-                if ((rotation >= section.Start && rotation <= section.Medium) || 
-                    (rotation > section.Medium && rotation < section.End))
+                if (section.Start > section.End)
+                {
+                    if (rotation > section.Start || rotation < section.End)
+                    {
+                        _multipliedReward = reward * section.Multiplier;
+
+                        _multipliedRewardText.text =
+                        reward >= 1000 ?
+                        ((reward * section.Multiplier / 1000f).ToString("0.00") + "k") :
+                        (reward * section.Multiplier).ToString();
+                    }
+                }
+
+                if (rotation >= section.Start && rotation <= section.End)
                 {
                     _multipliedReward = reward * section.Multiplier;
 
