@@ -2,6 +2,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 public class Wallet : MonoBehaviour
 {
@@ -24,7 +25,9 @@ public class Wallet : MonoBehaviour
 
     public void UpdateBalance()
     {
-        _balanceText.text = Balance.ToString();
+        
+        _balanceText.text = Balance >= 1000 ? 
+            ((Balance / 1000f).ToString("0.00") + "k") : (Balance.ToString());
     }
 
     public void Take(int amount)
