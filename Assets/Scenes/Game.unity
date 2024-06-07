@@ -10114,7 +10114,7 @@ Transform:
   m_GameObject: {fileID: 1006510161}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.0598483, y: -7.9577484, z: -45.982468}
+  m_LocalPosition: {x: -0.85, y: -7.9577484, z: -45.982468}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -13618,51 +13618,39 @@ MonoBehaviour:
         m_CallState: 2
   _section:
   - _start: 345
-    _medium: 0
     _end: 15
     _multiplier: 5
   - _start: 15
-    _medium: 30
     _end: 45
     _multiplier: 4
   - _start: 45
-    _medium: 60
     _end: 75
     _multiplier: 3
   - _start: 75
-    _medium: 90
     _end: 105
     _multiplier: 2
   - _start: 105
-    _medium: 120
     _end: 135
     _multiplier: 3
   - _start: 135
-    _medium: 150
     _end: 165
     _multiplier: 4
   - _start: 165
-    _medium: 180
     _end: 195
     _multiplier: 5
   - _start: 195
-    _medium: 210
     _end: 225
     _multiplier: 4
   - _start: 225
-    _medium: 240
     _end: 255
     _multiplier: 3
   - _start: 255
-    _medium: 270
     _end: 285
     _multiplier: 2
   - _start: 285
-    _medium: 300
     _end: 315
     _multiplier: 3
   - _start: 315
-    _medium: 330
     _end: 345
     _multiplier: 4
 --- !u!1001 &1521293771
