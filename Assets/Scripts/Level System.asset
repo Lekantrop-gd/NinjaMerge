@@ -14,12 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levels:
   - _enemies:
-    - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
+    - _weapon: {fileID: 0}
       _armor: {fileID: 0}
   - _enemies:
-    - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
+    - _weapon: {fileID: 0}
+      _armor: {fileID: 0}
+    - _weapon: {fileID: 0}
       _armor: {fileID: 0}
   - _enemies:
+    - _weapon: {fileID: 0}
+      _armor: {fileID: 0}
     - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
       _armor: {fileID: 0}
     - _weapon: {fileID: 0}
@@ -33,7 +37,11 @@ MonoBehaviour:
       _armor: {fileID: 0}
   - _enemies:
     - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
-      _armor: {fileID: 8446496851347552881, guid: 8375b1ae1e4126245a6f0e4d78f5f35f, type: 3}
+      _armor: {fileID: 0}
+    - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
+      _armor: {fileID: 0}
+    - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
+      _armor: {fileID: 0}
   - _enemies:
     - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
       _armor: {fileID: 8446496851347552881, guid: 8375b1ae1e4126245a6f0e4d78f5f35f, type: 3}
@@ -45,6 +53,20 @@ MonoBehaviour:
     - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
       _armor: {fileID: 8446496851347552881, guid: 8375b1ae1e4126245a6f0e4d78f5f35f, type: 3}
   - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
+      _armor: {fileID: 0}
+    - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8375b1ae1e4126245a6f0e4d78f5f35f, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
+      _armor: {fileID: 0}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8375b1ae1e4126245a6f0e4d78f5f35f, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8375b1ae1e4126245a6f0e4d78f5f35f, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8375b1ae1e4126245a6f0e4d78f5f35f, type: 3}
+  - _enemies:
     - _weapon: {fileID: 3803490874325575924, guid: 1cde3d9ea00fc69488b38441fc4905b9, type: 3}
       _armor: {fileID: 8446496851347552881, guid: 8310a483657e8604599a75c7291519e1, type: 3}
   - _enemies:
@@ -52,8 +74,236 @@ MonoBehaviour:
       _armor: {fileID: 8446496851347552881, guid: 8310a483657e8604599a75c7291519e1, type: 3}
     - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
       _armor: {fileID: 8446496851347552881, guid: 8375b1ae1e4126245a6f0e4d78f5f35f, type: 3}
+  - _enemies:
     - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
       _armor: {fileID: 8446496851347552881, guid: 8375b1ae1e4126245a6f0e4d78f5f35f, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: 1cde3d9ea00fc69488b38441fc4905b9, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8310a483657e8604599a75c7291519e1, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8375b1ae1e4126245a6f0e4d78f5f35f, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: 1cde3d9ea00fc69488b38441fc4905b9, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8310a483657e8604599a75c7291519e1, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8375b1ae1e4126245a6f0e4d78f5f35f, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: 1cde3d9ea00fc69488b38441fc4905b9, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8310a483657e8604599a75c7291519e1, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: 1cde3d9ea00fc69488b38441fc4905b9, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8310a483657e8604599a75c7291519e1, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: 1cde3d9ea00fc69488b38441fc4905b9, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8310a483657e8604599a75c7291519e1, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: 1cde3d9ea00fc69488b38441fc4905b9, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8310a483657e8604599a75c7291519e1, type: 3}
   - _enemies:
     - _weapon: {fileID: 3803490874325575924, guid: 7b7c0faf156afca40b3a890c32bac8d1, type: 3}
       _armor: {fileID: 8446496851347552881, guid: 8302207517d24df47a28f0e20553f50f, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: 7b7c0faf156afca40b3a890c32bac8d1, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8302207517d24df47a28f0e20553f50f, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: 1cde3d9ea00fc69488b38441fc4905b9, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8310a483657e8604599a75c7291519e1, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8375b1ae1e4126245a6f0e4d78f5f35f, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: 7b7c0faf156afca40b3a890c32bac8d1, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8302207517d24df47a28f0e20553f50f, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8375b1ae1e4126245a6f0e4d78f5f35f, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: 1cde3d9ea00fc69488b38441fc4905b9, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8310a483657e8604599a75c7291519e1, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: 7b7c0faf156afca40b3a890c32bac8d1, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8302207517d24df47a28f0e20553f50f, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: 1cde3d9ea00fc69488b38441fc4905b9, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8310a483657e8604599a75c7291519e1, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: 7b7c0faf156afca40b3a890c32bac8d1, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8302207517d24df47a28f0e20553f50f, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: 7b7c0faf156afca40b3a890c32bac8d1, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8302207517d24df47a28f0e20553f50f, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: 7b7c0faf156afca40b3a890c32bac8d1, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8302207517d24df47a28f0e20553f50f, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: 7b7c0faf156afca40b3a890c32bac8d1, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8302207517d24df47a28f0e20553f50f, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: 7b7c0faf156afca40b3a890c32bac8d1, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8302207517d24df47a28f0e20553f50f, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: af2a8b4d476e66849bc67c87adeb9cb2, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: dc6f846a2fe35ce498c6e98214fa7ce0, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: 7b7c0faf156afca40b3a890c32bac8d1, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8302207517d24df47a28f0e20553f50f, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: af2a8b4d476e66849bc67c87adeb9cb2, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: dc6f846a2fe35ce498c6e98214fa7ce0, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: 7b7c0faf156afca40b3a890c32bac8d1, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8302207517d24df47a28f0e20553f50f, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: af2a8b4d476e66849bc67c87adeb9cb2, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: dc6f846a2fe35ce498c6e98214fa7ce0, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: 7b7c0faf156afca40b3a890c32bac8d1, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8302207517d24df47a28f0e20553f50f, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: af2a8b4d476e66849bc67c87adeb9cb2, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: dc6f846a2fe35ce498c6e98214fa7ce0, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: 7b7c0faf156afca40b3a890c32bac8d1, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8302207517d24df47a28f0e20553f50f, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: af2a8b4d476e66849bc67c87adeb9cb2, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: dc6f846a2fe35ce498c6e98214fa7ce0, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: b7fbeb156dc3fd7479687d7471ceb088, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 6b5778b1967b77e47998f05023b32dc8, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: 7b7c0faf156afca40b3a890c32bac8d1, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8302207517d24df47a28f0e20553f50f, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: b7fbeb156dc3fd7479687d7471ceb088, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 6b5778b1967b77e47998f05023b32dc8, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: 7b7c0faf156afca40b3a890c32bac8d1, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 8302207517d24df47a28f0e20553f50f, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: b7fbeb156dc3fd7479687d7471ceb088, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 6b5778b1967b77e47998f05023b32dc8, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: af2a8b4d476e66849bc67c87adeb9cb2, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: dc6f846a2fe35ce498c6e98214fa7ce0, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: af2a8b4d476e66849bc67c87adeb9cb2, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: dc6f846a2fe35ce498c6e98214fa7ce0, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: b7fbeb156dc3fd7479687d7471ceb088, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 6b5778b1967b77e47998f05023b32dc8, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: af2a8b4d476e66849bc67c87adeb9cb2, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: dc6f846a2fe35ce498c6e98214fa7ce0, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: b7fbeb156dc3fd7479687d7471ceb088, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 6b5778b1967b77e47998f05023b32dc8, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: af2a8b4d476e66849bc67c87adeb9cb2, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: dc6f846a2fe35ce498c6e98214fa7ce0, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: b7fbeb156dc3fd7479687d7471ceb088, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 6b5778b1967b77e47998f05023b32dc8, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: aa3794c6d6c60184597e8716b2df5785, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 35a4cce6750b7d14e8c4913bbf27506d, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: b7fbeb156dc3fd7479687d7471ceb088, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 6b5778b1967b77e47998f05023b32dc8, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: aa3794c6d6c60184597e8716b2df5785, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 35a4cce6750b7d14e8c4913bbf27506d, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: af2a8b4d476e66849bc67c87adeb9cb2, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: dc6f846a2fe35ce498c6e98214fa7ce0, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: aa3794c6d6c60184597e8716b2df5785, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 35a4cce6750b7d14e8c4913bbf27506d, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: af2a8b4d476e66849bc67c87adeb9cb2, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: dc6f846a2fe35ce498c6e98214fa7ce0, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: b7fbeb156dc3fd7479687d7471ceb088, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 6b5778b1967b77e47998f05023b32dc8, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: aa3794c6d6c60184597e8716b2df5785, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 35a4cce6750b7d14e8c4913bbf27506d, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: b7fbeb156dc3fd7479687d7471ceb088, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 6b5778b1967b77e47998f05023b32dc8, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: aa3794c6d6c60184597e8716b2df5785, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 35a4cce6750b7d14e8c4913bbf27506d, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: b7fbeb156dc3fd7479687d7471ceb088, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 6b5778b1967b77e47998f05023b32dc8, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: aa3794c6d6c60184597e8716b2df5785, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 35a4cce6750b7d14e8c4913bbf27506d, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: aac737de312a7724899c358782bfc78d, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: a38443873225352458a7be29a2b063e5, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: b7fbeb156dc3fd7479687d7471ceb088, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 6b5778b1967b77e47998f05023b32dc8, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: aac737de312a7724899c358782bfc78d, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: a38443873225352458a7be29a2b063e5, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: b7fbeb156dc3fd7479687d7471ceb088, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 6b5778b1967b77e47998f05023b32dc8, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: aac737de312a7724899c358782bfc78d, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: a38443873225352458a7be29a2b063e5, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: aa3794c6d6c60184597e8716b2df5785, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 35a4cce6750b7d14e8c4913bbf27506d, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: aa3794c6d6c60184597e8716b2df5785, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 35a4cce6750b7d14e8c4913bbf27506d, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: aac737de312a7724899c358782bfc78d, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: a38443873225352458a7be29a2b063e5, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: aa3794c6d6c60184597e8716b2df5785, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 35a4cce6750b7d14e8c4913bbf27506d, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: aac737de312a7724899c358782bfc78d, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: a38443873225352458a7be29a2b063e5, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: aa3794c6d6c60184597e8716b2df5785, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 35a4cce6750b7d14e8c4913bbf27506d, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: aac737de312a7724899c358782bfc78d, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: a38443873225352458a7be29a2b063e5, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: d3379b22cd8f2ed4b8fe04344c8e2f58, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: e17cb7e2a2af966478a775de0df2b431, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: d3379b22cd8f2ed4b8fe04344c8e2f58, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: e17cb7e2a2af966478a775de0df2b431, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: aa3794c6d6c60184597e8716b2df5785, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 35a4cce6750b7d14e8c4913bbf27506d, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: b7fbeb156dc3fd7479687d7471ceb088, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 6b5778b1967b77e47998f05023b32dc8, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: d3379b22cd8f2ed4b8fe04344c8e2f58, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: e17cb7e2a2af966478a775de0df2b431, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: b7fbeb156dc3fd7479687d7471ceb088, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 6b5778b1967b77e47998f05023b32dc8, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: aa3794c6d6c60184597e8716b2df5785, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 35a4cce6750b7d14e8c4913bbf27506d, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: d3379b22cd8f2ed4b8fe04344c8e2f58, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: e17cb7e2a2af966478a775de0df2b431, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: aac737de312a7724899c358782bfc78d, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: a38443873225352458a7be29a2b063e5, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: aac737de312a7724899c358782bfc78d, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: a38443873225352458a7be29a2b063e5, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: d3379b22cd8f2ed4b8fe04344c8e2f58, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: e17cb7e2a2af966478a775de0df2b431, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: aac737de312a7724899c358782bfc78d, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: a38443873225352458a7be29a2b063e5, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: d3379b22cd8f2ed4b8fe04344c8e2f58, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: e17cb7e2a2af966478a775de0df2b431, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: aac737de312a7724899c358782bfc78d, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: a38443873225352458a7be29a2b063e5, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: d3379b22cd8f2ed4b8fe04344c8e2f58, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: e17cb7e2a2af966478a775de0df2b431, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: ae13472c116eb1e459ed64654aad5ece, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: c481e86014215734f86605ee1412fc22, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: aac737de312a7724899c358782bfc78d, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: a38443873225352458a7be29a2b063e5, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: aa3794c6d6c60184597e8716b2df5785, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 35a4cce6750b7d14e8c4913bbf27506d, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: ae13472c116eb1e459ed64654aad5ece, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: c481e86014215734f86605ee1412fc22, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: aa3794c6d6c60184597e8716b2df5785, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: 35a4cce6750b7d14e8c4913bbf27506d, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: ae13472c116eb1e459ed64654aad5ece, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: c481e86014215734f86605ee1412fc22, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: d3379b22cd8f2ed4b8fe04344c8e2f58, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: e17cb7e2a2af966478a775de0df2b431, type: 3}
+    - _weapon: {fileID: 0}
+      _armor: {fileID: 0}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: aac737de312a7724899c358782bfc78d, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: a38443873225352458a7be29a2b063e5, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: ae13472c116eb1e459ed64654aad5ece, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: c481e86014215734f86605ee1412fc22, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: aac737de312a7724899c358782bfc78d, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: a38443873225352458a7be29a2b063e5, type: 3}
+  - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: d3379b22cd8f2ed4b8fe04344c8e2f58, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: e17cb7e2a2af966478a775de0df2b431, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: ae13472c116eb1e459ed64654aad5ece, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: c481e86014215734f86605ee1412fc22, type: 3}
+    - _weapon: {fileID: 3803490874325575924, guid: d3379b22cd8f2ed4b8fe04344c8e2f58, type: 3}
+      _armor: {fileID: 8446496851347552881, guid: e17cb7e2a2af966478a775de0df2b431, type: 3}

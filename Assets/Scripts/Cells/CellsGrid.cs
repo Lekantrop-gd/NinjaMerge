@@ -158,32 +158,11 @@ public class CellsGrid : MonoBehaviour
         CrazySDK.User.SyncUnityGameData();
     }
 
-    [Button]
-    private void Align()
-    {
-        _cells.Clear();
-        for (int child = transform.childCount - 1; child >= 0; child--)
-        {
-            DestroyImmediate(transform.GetChild(child).gameObject);
-        }
-
-        for (int row = 0; row < _rows; row++)
-        {
-            for (int column = 0; column < _columns; column++)
-            {
-                Cell cell = Instantiate(_cellPreafab, transform);
-                cell.transform.localPosition = new Vector3(-column, 0, row);
-                _cells.Add(cell);
-            }
-        }
-    }
-
     public bool SpawnWeapon()
     {
         return SpawnItem(_weaponPrefab);
     }
 
-    [Button]
     public bool SpawnArmor()
     {
         return SpawnItem(_armorPrefab);
@@ -235,5 +214,27 @@ public class CellsGrid : MonoBehaviour
         mergable.transform.position = _cells[position].transform.position;
 
         _cells[position].Put(mergable);
+
+        Save();
+    }
+    
+    [Button]
+    private void Align()
+    {
+        _cells.Clear();
+        for (int child = transform.childCount - 1; child >= 0; child--)
+        {
+            DestroyImmediate(transform.GetChild(child).gameObject);
+        }
+
+        for (int row = 0; row < _rows; row++)
+        {
+            for (int column = 0; column < _columns; column++)
+            {
+                Cell cell = Instantiate(_cellPreafab, transform);
+                cell.transform.localPosition = new Vector3(-column, 0, row);
+                _cells.Add(cell);
+            }
+        }
     }
 }

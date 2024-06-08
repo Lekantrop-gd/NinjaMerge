@@ -22,7 +22,20 @@ public class Enemy : MonoBehaviour
     public event Action<Enemy> Died;
     public event Action Run;
     public event Action Fight;
+    
+    private void OnEnable()
+    {
+        Player.Won += OnWon;
+        Player.Defeat += OnDefeat;
+        EnemyEventHandler.Damage += DealDamage;
+    }
 
+    private void OnDisable()
+    {
+        Player.Won -= OnWon;
+        Player.Defeat -= OnDefeat;
+        EnemyEventHandler.Damage -= DealDamage;
+    }
 
     public void Init(Weapon weapon, Armor armor)
     {
@@ -44,6 +57,37 @@ public class Enemy : MonoBehaviour
         _attacking = StartCoroutine(Attack(player));
     }
 
+    public void DealDamage()
+    {
+        _player.TakeDamage(_weapon == null ? 0 : _weapon.Damage);
+        _fightSounds[UnityEngine.Random.Range(0, _fightSounds.Length)].Play();
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (damage >= _health)
+        {
+            _health = 0;
+            Died?.Invoke(this);
+            StopCoroutine(_attacking);
+            Alive = false;
+            GetComponent<Collider>().enabled = false;
+        }
+        else
+        {
+            _health -= damage;
+        }
+    }
+
+    private void OnDefeat()
+    {
+        StopCoroutine(_attacking);
+    }
+
+    private void OnWon()
+    {
+        StopCoroutine(_attacking);
+    }
     private IEnumerator Attack(Player player)
     {
         while (player.Alive)
@@ -72,51 +116,5 @@ public class Enemy : MonoBehaviour
 
             yield return null;
         }
-    }
-
-    public void DealDamage()
-    {
-        _player.TakeDamage(_weapon == null ? 0 : _weapon.Damage);
-        _fightSounds[UnityEngine.Random.Range(0, _fightSounds.Length)].Play();
-    }
-
-    public void TakeDamage(int damage)
-    {
-        if (damage >= _health)
-        {
-            _health = 0;
-            Died?.Invoke(this);
-            StopCoroutine(_attacking);
-            Alive = false;
-            GetComponent<Collider>().enabled = false;
-        }
-        else
-        {
-            _health -= damage;
-        }
-    }
-
-    private void OnEnable()
-    {
-        Player.Won += OnWon;
-        Player.Defeat += OnDefeat;
-        EnemyEventHandler.Damage += DealDamage;
-    }
-
-    private void OnDisable()
-    {
-        Player.Won -= OnWon;
-        Player.Defeat -= OnDefeat;
-        EnemyEventHandler.Damage -= DealDamage;
-    }
-
-    private void OnDefeat()
-    {
-        StopCoroutine(_attacking);
-    }
-
-    private void OnWon()
-    {
-        StopCoroutine(_attacking);
     }
 }
