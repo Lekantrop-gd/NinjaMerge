@@ -59,19 +59,6 @@ public class EndScreen : MonoBehaviour
 
             foreach (var section in _section)
             {
-                if (section.Start > section.End)
-                {
-                    if (rotation > section.Start || rotation < section.End)
-                    {
-                        _multipliedReward = reward * section.Multiplier;
-
-                        _multipliedRewardText.text =
-                        reward >= 1000 ?
-                        ((reward * section.Multiplier / 1000f).ToString("0.00") + "k") :
-                        (reward * section.Multiplier).ToString();
-                    }
-                }
-
                 if (rotation >= section.Start && rotation <= section.End)
                 {
                     _multipliedReward = reward * section.Multiplier;

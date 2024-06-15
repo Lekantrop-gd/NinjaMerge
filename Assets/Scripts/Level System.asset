@@ -17,21 +17,10 @@ MonoBehaviour:
     - _weapon: {fileID: 0}
       _armor: {fileID: 0}
   - _enemies:
-    - _weapon: {fileID: 0}
-      _armor: {fileID: 0}
-    - _weapon: {fileID: 0}
-      _armor: {fileID: 0}
-  - _enemies:
-    - _weapon: {fileID: 0}
-      _armor: {fileID: 0}
     - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
-      _armor: {fileID: 0}
-    - _weapon: {fileID: 0}
       _armor: {fileID: 0}
   - _enemies:
     - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
-      _armor: {fileID: 0}
-    - _weapon: {fileID: 0}
       _armor: {fileID: 0}
     - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
       _armor: {fileID: 0}
@@ -43,6 +32,8 @@ MonoBehaviour:
     - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
       _armor: {fileID: 0}
   - _enemies:
+    - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
+      _armor: {fileID: 0}
     - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
       _armor: {fileID: 8446496851347552881, guid: 8375b1ae1e4126245a6f0e4d78f5f35f, type: 3}
     - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
@@ -52,13 +43,6 @@ MonoBehaviour:
       _armor: {fileID: 8446496851347552881, guid: 8375b1ae1e4126245a6f0e4d78f5f35f, type: 3}
     - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
       _armor: {fileID: 8446496851347552881, guid: 8375b1ae1e4126245a6f0e4d78f5f35f, type: 3}
-  - _enemies:
-    - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
-      _armor: {fileID: 0}
-    - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
-      _armor: {fileID: 8446496851347552881, guid: 8375b1ae1e4126245a6f0e4d78f5f35f, type: 3}
-    - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
-      _armor: {fileID: 0}
   - _enemies:
     - _weapon: {fileID: 3803490874325575924, guid: bd469b5c731ec2c4dafdeaea51962124, type: 3}
       _armor: {fileID: 8446496851347552881, guid: 8375b1ae1e4126245a6f0e4d78f5f35f, type: 3}
